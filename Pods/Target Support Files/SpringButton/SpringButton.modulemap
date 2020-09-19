@@ -1,0 +1,6 @@
+framework module SpringButton {
+  umbrella header "SpringButton-umbrella.h"
+
+  export *
+  module * { export * }
+}

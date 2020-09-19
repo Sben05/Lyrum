@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7934642C2515A74D007261CE /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934642B2515A74D007261CE /* Appearance.swift */; };
+		7934647C2515B4F7007261CE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934647B2515B4F7007261CE /* LoginViewController.swift */; };
+		793464CB2515EA19007261CE /* SpotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793464CA2515EA19007261CE /* SpotifyManager.swift */; };
+		7934654F251659C7007261CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934654E251659C7007261CE /* Extensions.swift */; };
+		793465A7251666CF007261CE /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793465A6251666CF007261CE /* ContentViewController.swift */; };
+		7934660C25166F5F007261CE /* ContentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934660B25166F5F007261CE /* ContentTableView.swift */; };
+		7934664725168E48007261CE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934664625168E48007261CE /* TabBarController.swift */; };
+		79F6C37025159CC40003A44C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F6C36F25159CC40003A44C /* AppDelegate.swift */; };
+		79F6C37225159CC40003A44C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F6C37125159CC40003A44C /* SceneDelegate.swift */; };
+		79F6C37925159CC50003A44C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F6C37825159CC50003A44C /* Assets.xcassets */; };
+		79F6C37C25159CC50003A44C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F6C37A25159CC50003A44C /* LaunchScreen.storyboard */; };
+		79F6C38A2515A2C10003A44C /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F6C3892515A2C10003A44C /* Database.swift */; };
+		9C2647E34761EF805E8109F8 /* Pods_lyrum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E536746CC24AC14374BD9C3 /* Pods_lyrum.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0E536746CC24AC14374BD9C3 /* Pods_lyrum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lyrum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7934642B2515A74D007261CE /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		7934647B2515B4F7007261CE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		793464CA2515EA19007261CE /* SpotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyManager.swift; sourceTree = "<group>"; };
+		7934654E251659C7007261CE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		793465A6251666CF007261CE /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		7934660B25166F5F007261CE /* ContentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableView.swift; sourceTree = "<group>"; };
+		7934664625168E48007261CE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		79F6C36C25159CC40003A44C /* lyrum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lyrum.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		79F6C36F25159CC40003A44C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		79F6C37125159CC40003A44C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		79F6C37825159CC50003A44C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		79F6C37B25159CC50003A44C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		79F6C37D25159CC50003A44C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79F6C3892515A2C10003A44C /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		D079A72AEA9A39469DC3A089 /* Pods-lyrum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lyrum.debug.xcconfig"; path = "Target Support Files/Pods-lyrum/Pods-lyrum.debug.xcconfig"; sourceTree = "<group>"; };
+		E2973BF015F47F85D3772EDB /* Pods-lyrum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lyrum.release.xcconfig"; path = "Target Support Files/Pods-lyrum/Pods-lyrum.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		79F6C36925159CC40003A44C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C2647E34761EF805E8109F8 /* Pods_lyrum.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06D0ECAECCEE76AD9299FD24 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D079A72AEA9A39469DC3A089 /* Pods-lyrum.debug.xcconfig */,
+				E2973BF015F47F85D3772EDB /* Pods-lyrum.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5F6BAED381CA6A7520EDD856 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E536746CC24AC14374BD9C3 /* Pods_lyrum.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		793465A92516673B007261CE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7934664625168E48007261CE /* TabBarController.swift */,
+				7934647B2515B4F7007261CE /* LoginViewController.swift */,
+				793465A6251666CF007261CE /* ContentViewController.swift */,
+				7934660B25166F5F007261CE /* ContentTableView.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		793465AC25166754007261CE /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				7934642B2515A74D007261CE /* Appearance.swift */,
+				7934654E251659C7007261CE /* Extensions.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		793465AE2516675D007261CE /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				793464CA2515EA19007261CE /* SpotifyManager.swift */,
+				79F6C3892515A2C10003A44C /* Database.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		79F6C36325159CC40003A44C = {
+			isa = PBXGroup;
+			children = (
+				79F6C36E25159CC40003A44C /* lyrum */,
+				79F6C36D25159CC40003A44C /* Products */,
+				06D0ECAECCEE76AD9299FD24 /* Pods */,
+				5F6BAED381CA6A7520EDD856 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		79F6C36D25159CC40003A44C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				79F6C36C25159CC40003A44C /* lyrum.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		79F6C36E25159CC40003A44C /* lyrum */ = {
+			isa = PBXGroup;
+			children = (
+				79F6C36F25159CC40003A44C /* AppDelegate.swift */,
+				79F6C37125159CC40003A44C /* SceneDelegate.swift */,
+				793465A92516673B007261CE /* ViewControllers */,
+				793465AE2516675D007261CE /* Backend */,
+				793465AC25166754007261CE /* Details */,
+				79F6C37825159CC50003A44C /* Assets.xcassets */,
+				79F6C37A25159CC50003A44C /* LaunchScreen.storyboard */,
+				79F6C37D25159CC50003A44C /* Info.plist */,
+			);
+			path = lyrum;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		79F6C36B25159CC40003A44C /* lyrum */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79F6C38025159CC50003A44C /* Build configuration list for PBXNativeTarget "lyrum" */;
+			buildPhases = (
+				6ADA51265CDB4FA48633DA31 /* [CP] Check Pods Manifest.lock */,
+				79F6C36825159CC40003A44C /* Sources */,
+				79F6C36925159CC40003A44C /* Frameworks */,
+				79F6C36A25159CC40003A44C /* Resources */,
+				1352C5F5FEA975848471573C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = lyrum;
+			productName = lyrum;
+			productReference = 79F6C36C25159CC40003A44C /* lyrum.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		79F6C36425159CC40003A44C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					79F6C36B25159CC40003A44C = {
+						CreatedOnToolsVersion = 12.0;
+					};
+				};
+			};
+			buildConfigurationList = 79F6C36725159CC40003A44C /* Build configuration list for PBXProject "lyrum" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 79F6C36325159CC40003A44C;
+			productRefGroup = 79F6C36D25159CC40003A44C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				79F6C36B25159CC40003A44C /* lyrum */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		79F6C36A25159CC40003A44C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79F6C37C25159CC50003A44C /* LaunchScreen.storyboard in Resources */,
+				79F6C37925159CC50003A44C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1352C5F5FEA975848471573C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lyrum/Pods-lyrum-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lyrum/Pods-lyrum-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lyrum/Pods-lyrum-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6ADA51265CDB4FA48633DA31 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lyrum-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		79F6C36825159CC40003A44C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7934647C2515B4F7007261CE /* LoginViewController.swift in Sources */,
+				793464CB2515EA19007261CE /* SpotifyManager.swift in Sources */,
+				7934664725168E48007261CE /* TabBarController.swift in Sources */,
+				7934642C2515A74D007261CE /* Appearance.swift in Sources */,
+				7934654F251659C7007261CE /* Extensions.swift in Sources */,
+				793465A7251666CF007261CE /* ContentViewController.swift in Sources */,
+				79F6C37025159CC40003A44C /* AppDelegate.swift in Sources */,
+				79F6C38A2515A2C10003A44C /* Database.swift in Sources */,
+				79F6C37225159CC40003A44C /* SceneDelegate.swift in Sources */,
+				7934660C25166F5F007261CE /* ContentTableView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		79F6C37A25159CC50003A44C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79F6C37B25159CC50003A44C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		79F6C37E25159CC50003A44C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		79F6C37F25159CC50003A44C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		79F6C38125159CC50003A44C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D079A72AEA9A39469DC3A089 /* Pods-lyrum.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K5M42US3Y3;
+				INFOPLIST_FILE = lyrum/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.josharnold.lyrum;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		79F6C38225159CC50003A44C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2973BF015F47F85D3772EDB /* Pods-lyrum.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K5M42US3Y3;
+				INFOPLIST_FILE = lyrum/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.josharnold.lyrum;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		79F6C36725159CC40003A44C /* Build configuration list for PBXProject "lyrum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79F6C37E25159CC50003A44C /* Debug */,
+				79F6C37F25159CC50003A44C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79F6C38025159CC50003A44C /* Build configuration list for PBXNativeTarget "lyrum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79F6C38125159CC50003A44C /* Debug */,
+				79F6C38225159CC50003A44C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 79F6C36425159CC40003A44C /* Project object */;
+}

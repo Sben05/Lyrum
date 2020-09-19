@@ -1,0 +1,6 @@
+framework module EasyStash {
+  umbrella header "EasyStash-umbrella.h"
+
+  export *
+  module * { export * }
+}

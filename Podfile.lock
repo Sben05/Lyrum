@@ -1,0 +1,102 @@
+PODS:
+  - Alamofire (5.2.2)
+  - Bolts/Tasks (1.9.1)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
+  - Closures (0.7)
+  - DynamicBlurView (4.1.0)
+  - EasyStash (1.1.7)
+  - Gradients (0.3.0)
+  - Hero (1.5.0)
+  - Kingfisher (5.15.2):
+    - Kingfisher/Core (= 5.15.2)
+  - Kingfisher/Core (5.15.2)
+  - Parse (1.19.0):
+    - Parse/Core (= 1.19.0)
+  - Parse/Core (1.19.0):
+    - Bolts/Tasks (= 1.9.1)
+  - Parse/UI (1.19.0):
+    - Parse/Core
+  - pop (1.0.12)
+  - PopupDialog (1.1.1):
+    - DynamicBlurView (~> 4.0)
+  - SnapKit (5.0.1)
+  - SpringButton (0.1.2):
+    - pop
+    - SnapKit (~> 5.0.0)
+  - SVProgressHUD (2.2.6):
+    - SVProgressHUD/Core (= 2.2.6)
+  - SVProgressHUD/Core (2.2.6)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - ChameleonFramework/Swift (from `https://github.com/wowansm/Chameleon`, branch `swift5`)
+  - Closures
+  - EasyStash (from `https://github.com/onmyway133/EasyStash.git`)
+  - Gradients
+  - Hero
+  - Kingfisher (~> 5.0)
+  - Parse
+  - Parse/UI
+  - pop
+  - PopupDialog
+  - SnapKit
+  - SpringButton
+  - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Bolts
+    - Closures
+    - DynamicBlurView
+    - Gradients
+    - Hero
+    - Kingfisher
+    - Parse
+    - pop
+    - PopupDialog
+    - SnapKit
+    - SpringButton
+
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :branch: swift5
+    :git: https://github.com/wowansm/Chameleon
+  EasyStash:
+    :git: https://github.com/onmyway133/EasyStash.git
+  SVProgressHUD:
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: 96d52c36a45847fff60bcff7a58fec1e4bd7390b
+    :git: https://github.com/wowansm/Chameleon
+  EasyStash:
+    :commit: 37d8fae83256f042b8bdacf508df9c9251171c0f
+    :git: https://github.com/onmyway133/EasyStash.git
+  SVProgressHUD:
+    :commit: 3f151fbd5fa4bce056522e314b35630abf339577
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
+
+SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  Closures: a83b9892a5b1c4125a9dfcd53e2754db5d7f6d22
+  DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
+  EasyStash: 29813c9bca4ace671c86d932b3acffe91d6c4e43
+  Gradients: d7e1be639692b86577616ee55ea96f54fb5f1de1
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  Kingfisher: 1f60394409c6b916ce31474bcf73fdde6f3b9a7b
+  Parse: 0fb5c7cc7ee5900f2434e24607d0496155b8d04f
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  PopupDialog: 720c92befd8bc23c13442254945213db5612f149
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SpringButton: 70faf9a48807002982d14b8266f91ba41c177bdf
+  SVProgressHUD: de812b4f0e1d65358f0064416473174ae619843f
+
+PODFILE CHECKSUM: aaf3f2363ec6e5221795cbb0687cebe71c5fbc3d
+
+COCOAPODS: 1.8.4
