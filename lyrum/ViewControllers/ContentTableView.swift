@@ -91,7 +91,7 @@ extension ContentCell {
         
         self.author.snp.makeConstraints { (make) in
             make.top.equalTo(self.title.snp.bottom)
-            make.left.equalTo(self.artwork.snp.right).offset(15)
+            make.left.equalTo(self.artwork.snp.right).offset(10)
             make.right.equalToSuperview().offset(10)
             make.height.lessThanOrEqualToSuperview()
         }

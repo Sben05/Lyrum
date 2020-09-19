@@ -47,6 +47,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // TRIGGER SEGWAY INTO LOGIN FLOW..?
             print("Successfully logged in user!")
         }
+        
+        // Print for debugging
+        SpotifyAPI.access_token { (done) in
+            if (done) {
+                print(SpotifyConstants.ACCESS_TOKEN)
+            }
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -21,5 +21,8 @@ target 'lyrum' do
     pod 'Alamofire', '~> 5.2'
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon', :branch => 'swift5'
     pod 'Kingfisher', '~> 5.0'
+    pod 'SkyFloatingLabelTextField', '~> 3.0'
+    pod 'FontAwesome.swift'
+
 
 end

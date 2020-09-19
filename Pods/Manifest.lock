@@ -7,6 +7,7 @@ PODS:
   - Closures (0.7)
   - DynamicBlurView (4.1.0)
   - EasyStash (1.1.7)
+  - FontAwesome.swift (1.9.0)
   - Gradients (0.3.0)
   - Hero (1.5.0)
   - Kingfisher (5.15.2):
@@ -21,6 +22,7 @@ PODS:
   - pop (1.0.12)
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
+  - SkyFloatingLabelTextField (3.8.0)
   - SnapKit (5.0.1)
   - SpringButton (0.1.2):
     - pop
@@ -34,6 +36,7 @@ DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/wowansm/Chameleon`, branch `swift5`)
   - Closures
   - EasyStash (from `https://github.com/onmyway133/EasyStash.git`)
+  - FontAwesome.swift
   - Gradients
   - Hero
   - Kingfisher (~> 5.0)
@@ -41,6 +44,7 @@ DEPENDENCIES:
   - Parse/UI
   - pop
   - PopupDialog
+  - SkyFloatingLabelTextField (~> 3.0)
   - SnapKit
   - SpringButton
   - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
@@ -51,12 +55,14 @@ SPEC REPOS:
     - Bolts
     - Closures
     - DynamicBlurView
+    - FontAwesome.swift
     - Gradients
     - Hero
     - Kingfisher
     - Parse
     - pop
     - PopupDialog
+    - SkyFloatingLabelTextField
     - SnapKit
     - SpringButton
 
@@ -87,16 +93,18 @@ SPEC CHECKSUMS:
   Closures: a83b9892a5b1c4125a9dfcd53e2754db5d7f6d22
   DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
   EasyStash: 29813c9bca4ace671c86d932b3acffe91d6c4e43
+  FontAwesome.swift: a403b88cec950511745ba8f2decd1b6a07346d13
   Gradients: d7e1be639692b86577616ee55ea96f54fb5f1de1
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   Kingfisher: 1f60394409c6b916ce31474bcf73fdde6f3b9a7b
   Parse: 0fb5c7cc7ee5900f2434e24607d0496155b8d04f
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
+  SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SpringButton: 70faf9a48807002982d14b8266f91ba41c177bdf
   SVProgressHUD: de812b4f0e1d65358f0064416473174ae619843f
 
-PODFILE CHECKSUM: aaf3f2363ec6e5221795cbb0687cebe71c5fbc3d
+PODFILE CHECKSUM: 85c827dfb41eade51b3b1efe762feecbe404d982
 
 COCOAPODS: 1.8.4

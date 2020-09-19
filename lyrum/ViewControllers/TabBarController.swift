@@ -47,8 +47,7 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         
         if viewController is ShouldPresentViewController {
-//            let vc = NavigationController(rootViewController: ContentViewController())
-            let vc = LoginViewController()
+            let vc = NavigationController(rootViewController: SearchViewController())            
             vc.view.backgroundColor = .white
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)

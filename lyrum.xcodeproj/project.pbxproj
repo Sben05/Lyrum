@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79227B062516B4BE006CB86E /* SHSearchBar in Frameworks */ = {isa = PBXBuildFile; productRef = 79227B052516B4BE006CB86E /* SHSearchBar */; };
+		79227B092516B4FA006CB86E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79227B082516B4FA006CB86E /* SearchViewController.swift */; };
+		79227B602516C7B2006CB86E /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79227B5F2516C7B2006CB86E /* TagViewController.swift */; };
 		7934642C2515A74D007261CE /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934642B2515A74D007261CE /* Appearance.swift */; };
 		7934647C2515B4F7007261CE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934647B2515B4F7007261CE /* LoginViewController.swift */; };
 		793464CB2515EA19007261CE /* SpotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793464CA2515EA19007261CE /* SpotifyManager.swift */; };
@@ -24,6 +27,8 @@
 
 /* Begin PBXFileReference section */
 		0E536746CC24AC14374BD9C3 /* Pods_lyrum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lyrum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79227B082516B4FA006CB86E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		79227B5F2516C7B2006CB86E /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 		7934642B2515A74D007261CE /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		7934647B2515B4F7007261CE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		793464CA2515EA19007261CE /* SpotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyManager.swift; sourceTree = "<group>"; };
@@ -48,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C2647E34761EF805E8109F8 /* Pods_lyrum.framework in Frameworks */,
+				79227B062516B4BE006CB86E /* SHSearchBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +84,8 @@
 				7934647B2515B4F7007261CE /* LoginViewController.swift */,
 				793465A6251666CF007261CE /* ContentViewController.swift */,
 				7934660B25166F5F007261CE /* ContentTableView.swift */,
+				79227B082516B4FA006CB86E /* SearchViewController.swift */,
+				79227B5F2516C7B2006CB86E /* TagViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -151,6 +159,9 @@
 			dependencies = (
 			);
 			name = lyrum;
+			packageProductDependencies = (
+				79227B052516B4BE006CB86E /* SHSearchBar */,
+			);
 			productName = lyrum;
 			productReference = 79F6C36C25159CC40003A44C /* lyrum.app */;
 			productType = "com.apple.product-type.application";
@@ -178,6 +189,9 @@
 				Base,
 			);
 			mainGroup = 79F6C36325159CC40003A44C;
+			packageReferences = (
+				79227B042516B4BE006CB86E /* XCRemoteSwiftPackageReference "SHSearchBar" */,
+			);
 			productRefGroup = 79F6C36D25159CC40003A44C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -247,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7934647C2515B4F7007261CE /* LoginViewController.swift in Sources */,
+				79227B092516B4FA006CB86E /* SearchViewController.swift in Sources */,
 				793464CB2515EA19007261CE /* SpotifyManager.swift in Sources */,
 				7934664725168E48007261CE /* TabBarController.swift in Sources */,
 				7934642C2515A74D007261CE /* Appearance.swift in Sources */,
@@ -254,6 +269,7 @@
 				793465A7251666CF007261CE /* ContentViewController.swift in Sources */,
 				79F6C37025159CC40003A44C /* AppDelegate.swift in Sources */,
 				79F6C38A2515A2C10003A44C /* Database.swift in Sources */,
+				79227B602516C7B2006CB86E /* TagViewController.swift in Sources */,
 				79F6C37225159CC40003A44C /* SceneDelegate.swift in Sources */,
 				7934660C25166F5F007261CE /* ContentTableView.swift in Sources */,
 			);
@@ -453,6 +469,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		79227B042516B4BE006CB86E /* XCRemoteSwiftPackageReference "SHSearchBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Blackjacx/SHSearchBar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		79227B052516B4BE006CB86E /* SHSearchBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79227B042516B4BE006CB86E /* XCRemoteSwiftPackageReference "SHSearchBar" */;
+			productName = SHSearchBar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 79F6C36425159CC40003A44C /* Project object */;
 }
