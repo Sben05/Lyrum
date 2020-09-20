@@ -50,11 +50,11 @@ extension SearchCell {
         self.contentView.addSubview(artwork)
         
         title = BoldLabel()
-        title.numberOfLines = 0
+        title.numberOfLines = 1
         self.contentView.addSubview(title)
         
         self.artist = DetailLabel()
-        artist.numberOfLines = 0
+        artist.numberOfLines = 1
         self.contentView.addSubview(self.artist)
         
         spacer = UIView()
@@ -149,6 +149,7 @@ class SearchViewController: UIViewController, SongSearchDelegate {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.setupSearchBar()
+        self.hideLine()
         
         self.resultsTableView = SearchTableView(identifier: "searchTableView")
         self.resultsTableView.searchDelegate = self

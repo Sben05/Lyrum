@@ -71,6 +71,7 @@ class ContentViewController: UIViewController, RefreshDelegate, CommentDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.hideLine()
         self.view.backgroundColor = .white
         
         self.hotNew.onChange { (idx) in

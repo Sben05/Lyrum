@@ -157,6 +157,7 @@ class CommentViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         self.setup()
+        self.hideLine()
         
         tableView = CommentTableView(identifier: "comments")
 

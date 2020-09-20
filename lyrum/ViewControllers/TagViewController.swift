@@ -46,6 +46,7 @@ class TagViewController : UIViewController, MagneticDelegate {
         self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
         self.navigationController?.navigationBar.backItem?.title = ""
+        self.hideLine()
         
         let inst = CenterLabel()
         inst.text = self.song.title

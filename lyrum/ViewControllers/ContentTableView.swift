@@ -216,7 +216,7 @@ class ContentTableView : UITableView, UITableViewDelegate, UITableViewDataSource
     
         refreshControl = UIRefreshControl()
         refreshControl?.tintColor = .systemPink
-        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+//        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.addSubview(refreshControl!)
         refreshControl?.on(.valueChanged, handler: { (control, event) in
             self.refreshDelegate?.didRefresh(identifier: self.identifier)
