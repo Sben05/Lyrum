@@ -278,6 +278,10 @@ class ProfileViewController : UIViewController {
             self.scrollView.im6.kf.setImage(with: URL(string: results[5])!)
             
         }
+        
+        request_fav_songs { (results) in
+            
+        }
     }
     
 }
