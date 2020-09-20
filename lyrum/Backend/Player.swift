@@ -17,8 +17,6 @@ class SpotifyPlayer {
 
         SpotifyAPI.access_token { (success) in
             
-            print(UIDevice.current.identifierForVendor?.uuidString)
-            
             
             
             if !success {
@@ -35,20 +33,20 @@ class SpotifyPlayer {
                 
                 let parameters: [String: Any] = [
                     "device_id": uuid,
-                    "context_uri":song.uri,
-                    "position_ms": 0,
+                    "uris":[song.uri],
                 ]
+                
+                print(parameters)
                 
                 print("About to make request...")
                 
-                AF.request("https://api.spotify.com/v1/me/player/play", method: .put, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+                AF.request("https://api.spotify.com/v1/me/player/play", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
 //                    print(response.result)
 //                    print(response.value)
                     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
                     print("RESULT:")
+                    print(response)
                     print(response.value)
-                    print(response.error?.localizedDescription)
-                    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
                 }
             }
         }
