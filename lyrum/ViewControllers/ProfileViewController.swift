@@ -227,7 +227,7 @@ class ScrollView : UIScrollView {
             make.top.equalTo(self.favSongsLabel.snp.bottom).offset(5)
             make.width.height.equalTo(60)
         }
-        
+                    
         art2.snp.makeConstraints { (make) in
             make.top.equalTo(self.art1.snp.bottom).offset(0)
             make.width.height.equalTo(60)
@@ -238,6 +238,27 @@ class ScrollView : UIScrollView {
             make.width.height.equalTo(60)
         }
         
+        
+        songLabel1.snp.makeConstraints { (make) in
+            make.top.equalTo(self.favSongsLabel.snp.bottom).offset(5)
+            make.left.equalTo(art1.snp.right).offset(5)
+            make.right.equalToSuperview()
+            make.height.equalTo(self.art1.snp.height)
+        }
+        
+        songLabel2.snp.makeConstraints { (make) in
+            make.top.equalTo(self.art2.snp.bottom).offset(5)
+            make.left.equalTo(art2.snp.right).offset(5)
+            make.right.equalToSuperview()
+            make.height.equalTo(self.art2.snp.height)
+        }
+        
+        songLabel3.snp.makeConstraints { (make) in
+            make.top.equalTo(self.art3.snp.bottom).offset(5)
+            make.left.equalTo(art3.snp.right).offset(5)
+            make.right.equalToSuperview()
+            make.height.equalTo(self.art3.snp.height)
+        }
         
         
         self.addSubview(spacer)
@@ -301,6 +322,10 @@ class ProfileViewController : UIViewController {
             self.scrollView.profilePicture.kf.setImage(with: URL(string: image))
             self.scrollView.name.text = username
             self.scrollView.email.text = email
+            
+            self.scrollView.songLabel1.text = "1. 2 am By Che Ecru"
+            self.scrollView.songLabel2.text = "2. Sonic Boom by Roy Woods"
+            self.scrollView.songLabel3.text = "3. She is the Moon By vbnd"
         }
     }
     
