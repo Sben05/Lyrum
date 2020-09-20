@@ -14,7 +14,10 @@ import Parse
 class ScrollView : UIScrollView {
     
     var profilePicture:UIImageView!
+    var name:BoldLabel!
+    var email:CenterLabel!
     var spacer:UIView = UIView()
+    
     
     init() {
         super.init(frame: .zero)
@@ -24,16 +27,41 @@ class ScrollView : UIScrollView {
         profilePicture.clipsToBounds = true
         profilePicture.backgroundColor = UIColor(white: 0.97, alpha: 1)
         self.addSubview(profilePicture)
-        
+                        
         self.profilePicture.snp.makeConstraints { (make) in
             make.width.height.equalTo(100)
             make.top.equalToSuperview().offset(20)
             make.centerX.equalToSuperview()
         }
         
+        name = BoldLabel()
+        name.text = "First Last"
+        name.textAlignment = .center
+        self.addSubview(name)
+        
+        name.snp.makeConstraints { (make) in
+            make.top.equalTo(self.profilePicture.snp.bottom).offset(10)
+            make.width.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.height.equalTo(50)
+        }
+        
+        email = CenterLabel()
+        email.text = "example@ucdavis.edu"
+        email.textColor = UIColor(white: 0.7, alpha: 1.0)
+        self.addSubview(email)
+        
+        email.snp.makeConstraints { (make) in
+            make.top.equalTo(self.name.snp.bottom).offset(0)
+            make.width.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.height.equalTo(30)
+        }
+        
+        
         self.addSubview(spacer)
         spacer.snp.makeConstraints { (make) in
-            make.top.equalTo(self.profilePicture.snp.bottom)
+            make.top.equalTo(self.email.snp.bottom)
             make.left.right.bottom.equalToSuperview()
         }
         
@@ -90,6 +118,8 @@ class ProfileViewController : UIViewController {
         
         SpotifyAPI.me { (username, email, image, followers) in
             self.scrollView.profilePicture.kf.setImage(with: URL(string: image))
+            self.scrollView.name.text = username
+            self.scrollView.email.text = email
         }
     }
     
