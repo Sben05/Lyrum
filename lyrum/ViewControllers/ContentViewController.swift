@@ -81,6 +81,14 @@ class ContentViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        query_for_posts { (done, obj) in
+            self.hotTableView.objects = obj
+            self.hotTableView.reloadData()
+        }
+    }
 }
 
 

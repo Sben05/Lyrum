@@ -71,3 +71,27 @@ func create_post(song_title:String, song_id:String, artist:String, user:PFUser, 
         }
     }
 }
+
+
+func query_for_posts(completion: @escaping (_ success:Bool, _ objects: [PFObject]) -> ()) {
+    let query = PFQuery(className: "Post")
+    query.findObjectsInBackground { (obj, error) in
+        if error == nil {
+            completion(true, obj!)
+        }else{
+            completion(false, [])
+        }
+    }
+}
+
+
+func likePost(obj:PFObject) {
+    obj.addUniqueObject(PFUser.current()!.objectId!, forKey: "likes")
+    obj.saveInBackground()
+}
+
+
+func unlikePost(obj:PFObject) {
+    obj.removeObjects(in: [PFUser.current()!.objectId!], forKey: "likes")
+    obj.saveInBackground()
+}

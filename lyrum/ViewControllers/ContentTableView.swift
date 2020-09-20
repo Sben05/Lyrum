@@ -12,11 +12,12 @@ import Kingfisher
 
 class ContentCell: UITableViewCell {
     
+    var object:PFObject!
+    
     var artwork: UIImageView!
     var title: BoldLabel!
     var author: DetailLabel!
     var tagLabel: TagLabel!
-    
     
     var likeButton: ToolbarButton!
     var commentButton: ToolbarButton!
@@ -26,6 +27,9 @@ class ContentCell: UITableViewCell {
     
     var spacer: UIView!
     
+    var liked:Bool = false
+    
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupUI()
@@ -33,6 +37,20 @@ class ContentCell: UITableViewCell {
         let bg = UIView()
         bg.backgroundColor = UIColor.init(white: 0.95, alpha: 1)
         self.selectedBackgroundView = bg
+        
+        self.likeButton.onTap {
+            self.likeButton.released()
+            
+            if self.liked {
+                self.likeButton.imageView?.tintColor = UIColor(white: 0.8, alpha: 1.0)
+                unlikePost(obj: self.object)
+            }else{
+                self.likeButton.imageView?.tintColor = .flatRed()
+                likePost(obj: self.object)
+            }
+            
+            self.liked = !self.liked
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -140,6 +158,8 @@ class ContentTableView : UITableView, UITableViewDelegate, UITableViewDataSource
     
     var identifier:String!
     
+    var objects:[PFObject] = []
+    
     init(identifier:String) {
         super.init(frame: .zero, style: .plain)
         self.identifier = identifier
@@ -151,6 +171,8 @@ class ContentTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         self.separatorStyle = .none
         self.showsVerticalScrollIndicator = false
         self.alwaysBounceVertical = true
+        
+        self.allowsSelection = false
     }
     
     required init?(coder: NSCoder) {
@@ -162,18 +184,45 @@ class ContentTableView : UITableView, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return objects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        let obj = self.objects[indexPath.row]
+                                
         let cell = tableView.dequeueReusableCell(withIdentifier: self.identifier, for: indexPath) as! ContentCell
+        cell.object = obj
         cell.setArtwork(url: "https://images.genius.com/3736dc67a26ac7a30d7db2255a32f7c1.500x500x1.jpg")
         cell.title.text = "2 am By Che Ecru"
         cell.author.text = "@jarnold97"
-        cell.tagLabel.text = "chill"
+        cell.tagLabel.text = obj.object(forKey: "tag") as? String
         cell.tagLabel.setGradient()
         cell.infoLabel.text = "49 likes | 72 comments | 2.1K views"
         cell.snap()
+        cell.liked = false
+        
+        let likes = obj.object(forKey: "likes") as! [String]
+        let uid = PFUser.current()!.objectId!
+        if likes.contains(uid) {
+            cell.liked = true
+            cell.likeButton.imageView?.tintColor = .flatRed()
+        }else{
+            cell.likeButton.imageView?.tintColor = UIColor(white: 0.8, alpha: 1.0)
+        }
+        
+        obj.fetchIfNeededInBackground { (obj, err) in
+            let likes = obj!.object(forKey: "likes") as! [String]
+            let uid = PFUser.current()!.objectId!
+            if likes.contains(uid) {
+                cell.liked = true
+                cell.likeButton.imageView?.tintColor = .flatRed()
+            }else{
+                cell.likeButton.imageView?.tintColor = UIColor(white: 0.8, alpha: 1.0)
+            }
+        }
+        
         return cell
     }
     
