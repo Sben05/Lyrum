@@ -98,18 +98,24 @@ class CommentTableView : UITableView, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.objects.count
-//        return objects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 
-//        let obj = self.objects[indexPath.row]
+        let obj = self.objects[indexPath.row]
                                         
         let cell = tableView.dequeueReusableCell(withIdentifier: self.identifier, for: indexPath) as! CommentCell
     
-        cell.author.text = "@jarnold"
-        cell.date.text = "6:11PM"
-        cell.comment.text = "This song is absolute fire!"
+        let formatter1 = DateFormatter()
+        formatter1.dateStyle = .short
+        let date = formatter1.string(from: obj.createdAt!)
+        
+        let user = obj.object(forKey: "user") as! PFUser
+        let name = user.object(forKey: "name") as! String
+        
+        cell.author.text = "@" + (name.lowercased().replacingOccurrences(of: " ", with: ""))
+        cell.date.text = date
+        cell.comment.text = obj.object(forKey: "text") as! String
         
         return cell
     }

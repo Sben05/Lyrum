@@ -153,6 +153,7 @@ func pfobj_to_song(obj:PFObject) -> Song {
 
 func query_comments(post:PFObject, completion: @escaping (_ success:Bool, _ objects: [PFObject]) -> ()) {
     let query = PFQuery(className: "Comment")
+    query.includeKey("user")
     query.whereKey("post", equalTo: post)
     query.findObjectsInBackground { (obj, error) in
         if error == nil {
