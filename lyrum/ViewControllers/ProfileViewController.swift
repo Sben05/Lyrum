@@ -29,6 +29,8 @@ class ScrollView : UIScrollView {
     var im5:UIImageView!
     var im6:UIImageView!
     
+    var tableView:SearchTableView!
+    
     var favSongsLabel:BoldLabel!
         
     var spacer:UIView = UIView()
@@ -189,11 +191,24 @@ class ScrollView : UIScrollView {
             make.height.lessThanOrEqualToSuperview()
         }
         
-                
+        tableView = SearchTableView(identifier: "topSongs")
+        self.addSubview(tableView)
         
+        
+        tableView.isScrollEnabled = false
+        
+        tableView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.favSongsLabel.snp.bottom).offset(5)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(UIScreen.main.bounds.width)
+            make.height.equalTo(350)
+        }
+        
+        
+                
         self.addSubview(spacer)
         spacer.snp.makeConstraints { (make) in
-            make.top.equalTo(self.favSongsLabel.snp.bottom)
+            make.top.equalTo(self.tableView.snp.bottom)
             make.left.right.bottom.equalToSuperview()
         }
         
@@ -280,7 +295,8 @@ class ProfileViewController : UIViewController {
         }
         
         request_fav_songs { (results) in
-            
+            self.scrollView.tableView.results = results
+            self.scrollView.tableView.reloadData()
         }
     }
     

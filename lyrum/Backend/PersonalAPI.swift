@@ -74,11 +74,13 @@ func request_fav_songs(completion: @escaping (_ result:[Song]) -> ()) {
                         let song = Song()
                         song.title = i["name"] as! String
                         
-                        song.uri = ((i["album"] as! [String:Any])["images"] as! [[String:Any]])[1]["url"] as! String
+                        song.artwork = ((i["album"] as! [String:Any])["images"] as! [[String:Any]])[1]["url"] as! String
+                        
+                        song.artist = "XYZ"
                         
                         result.append(song)
                     }
-                }                                
+                }
                 completion(result)
             }
         }
