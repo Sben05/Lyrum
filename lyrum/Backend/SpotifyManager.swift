@@ -28,6 +28,30 @@ class SpotifyConstants {
 
 class SpotifyAPI {
     
+    static func me(completion: @escaping (_ username:String, _ email:String, _ image:String, _ numFollowers:String) -> ()){
+        SpotifyAPI.access_token { (done) in
+            if done {
+                let headers: HTTPHeaders = [
+                    "Authorization": "Bearer " + SpotifyConstants.ACCESS_TOKEN,
+                    "Accept": "application/json"
+                ]
+                
+                AF.request("https://api.spotify.com/v1/me", method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+                    if let res = response.value as? [String:Any] {
+                        let usersName = res["display_name"]!
+                        let email = res["email"]!
+                        let image = ((res["images"] as! NSArray)[0] as! NSDictionary)["url"]!
+                        let numOfFollowers = ((res["followers"]) as! NSDictionary)["total"]!
+                        
+                        completion(usersName, email, image, numOfFollowers)
+                    }else{
+                        completion("", "", "", "")
+                    }
+                }
+            }
+        }
+    }
+    
     /**
      Make a request to our API end point so client secret is hidden, updates the constants with a refresh tookken
      */
