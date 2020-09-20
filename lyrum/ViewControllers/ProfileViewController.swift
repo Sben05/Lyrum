@@ -30,16 +30,7 @@ class ScrollView : UIScrollView {
     var im6:UIImageView!
     
     var favSongsLabel:BoldLabel!
-    
-    var art1:UIImageView!
-    var songLabel1:DetailLabel!
-    
-    var art2:UIImageView!
-    var songLabel2:DetailLabel!
-    
-    var art3:UIImageView!
-    var songLabel3:DetailLabel!
-    
+        
     var spacer:UIView = UIView()
     
     
@@ -198,72 +189,11 @@ class ScrollView : UIScrollView {
             make.height.lessThanOrEqualToSuperview()
         }
         
-        
-        
-        art1 = UIImageView()
-        art1.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
-        self.addSubview(art1)
-        
-        art2 = UIImageView()
-        art2.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
-        self.addSubview(art2)
-        
-        art3 = UIImageView()
-        art3.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
-        self.addSubview(art3)
-        
-        
-        songLabel1 = DetailLabel()
-        self.addSubview(songLabel1)
-        
-        songLabel2 = DetailLabel()
-        self.addSubview(songLabel2)
-        
-        songLabel3 = DetailLabel()
-        self.addSubview(songLabel3)
-        
-        
-        art1.snp.makeConstraints { (make) in
-            make.top.equalTo(self.favSongsLabel.snp.bottom).offset(5)
-            make.width.height.equalTo(60)
-        }
-                    
-        art2.snp.makeConstraints { (make) in
-            make.top.equalTo(self.art1.snp.bottom).offset(0)
-            make.width.height.equalTo(60)
-        }
-        
-        art3.snp.makeConstraints { (make) in
-            make.top.equalTo(self.art2.snp.bottom).offset(0)
-            make.width.height.equalTo(60)
-        }
-        
-        
-        songLabel1.snp.makeConstraints { (make) in
-            make.top.equalTo(self.favSongsLabel.snp.bottom).offset(5)
-            make.left.equalTo(art1.snp.right).offset(5)
-            make.right.equalToSuperview()
-            make.height.equalTo(self.art1.snp.height)
-        }
-        
-        songLabel2.snp.makeConstraints { (make) in
-            make.top.equalTo(self.art2.snp.bottom).offset(5)
-            make.left.equalTo(art2.snp.right).offset(5)
-            make.right.equalToSuperview()
-            make.height.equalTo(self.art2.snp.height)
-        }
-        
-        songLabel3.snp.makeConstraints { (make) in
-            make.top.equalTo(self.art3.snp.bottom).offset(5)
-            make.left.equalTo(art3.snp.right).offset(5)
-            make.right.equalToSuperview()
-            make.height.equalTo(self.art3.snp.height)
-        }
-        
+                
         
         self.addSubview(spacer)
         spacer.snp.makeConstraints { (make) in
-            make.top.equalTo(self.art3.snp.bottom)
+            make.top.equalTo(self.favSongsLabel.snp.bottom)
             make.left.right.bottom.equalToSuperview()
         }
         
@@ -323,9 +253,9 @@ class ProfileViewController : UIViewController {
             self.scrollView.name.text = username
             self.scrollView.email.text = email
             
-            self.scrollView.songLabel1.text = "1. 2 am By Che Ecru"
-            self.scrollView.songLabel2.text = "2. Sonic Boom by Roy Woods"
-            self.scrollView.songLabel3.text = "3. She is the Moon By vbnd"
+//            self.scrollView.songLabel1.text = "1. 2 am By Che Ecru"
+//            self.scrollView.songLabel2.text = "2. Sonic Boom by Roy Woods"
+//            self.scrollView.songLabel3.text = "3. She is the Moon By vbnd"
         }
     }
     
