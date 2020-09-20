@@ -29,11 +29,24 @@ class ScrollView : UIScrollView {
     var im5:UIImageView!
     var im6:UIImageView!
     
+    var favSongsLabel:BoldLabel!
+    
+    var art1:UIImageView!
+    var songLabel1:DetailLabel!
+    
+    var art2:UIImageView!
+    var songLabel2:DetailLabel!
+    
+    var art3:UIImageView!
+    var songLabel3:DetailLabel!
+    
     var spacer:UIView = UIView()
     
     
     init() {
         super.init(frame: .zero)
+        
+        self.showsVerticalScrollIndicator = false
         
         profilePicture = UIImageView()
         profilePicture.layer.cornerRadius = 50
@@ -158,7 +171,7 @@ class ScrollView : UIScrollView {
         self.addSubview(im5)
         im5.snp.makeConstraints { (make) in
             make.top.equalTo(self.im2.snp.bottom)
-            make.left.equalTo(self.im5.snp.right)
+            make.left.equalTo(self.im4.snp.right)
             make.width.equalToSuperview().dividedBy(3)
             make.height.equalTo(im5.snp.width)
         }
@@ -168,15 +181,68 @@ class ScrollView : UIScrollView {
         self.addSubview(im6)
         im6.snp.makeConstraints { (make) in
             make.top.equalTo(self.im3.snp.bottom)
-            make.left.equalTo(self.im6.snp.right)
+            make.left.equalTo(self.im5.snp.right)
             make.width.equalToSuperview().dividedBy(3)
             make.height.equalTo(im6.snp.width)
         }
         
         
+        favSongsLabel = BoldLabel()
+        favSongsLabel.text = "Favourite Songs"
+        self.addSubview(favSongsLabel)
+        
+        favSongsLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(self.im5.snp.bottom).offset(50)
+            make.width.equalToSuperview().inset(10)
+            make.centerX.equalToSuperview()
+            make.height.lessThanOrEqualToSuperview()
+        }
+        
+        
+        
+        art1 = UIImageView()
+        art1.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        self.addSubview(art1)
+        
+        art2 = UIImageView()
+        art2.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        self.addSubview(art2)
+        
+        art3 = UIImageView()
+        art3.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        self.addSubview(art3)
+        
+        
+        songLabel1 = DetailLabel()
+        self.addSubview(songLabel1)
+        
+        songLabel2 = DetailLabel()
+        self.addSubview(songLabel2)
+        
+        songLabel3 = DetailLabel()
+        self.addSubview(songLabel3)
+        
+        
+        art1.snp.makeConstraints { (make) in
+            make.top.equalTo(self.favSongsLabel.snp.bottom).offset(5)
+            make.width.height.equalTo(60)
+        }
+        
+        art2.snp.makeConstraints { (make) in
+            make.top.equalTo(self.art1.snp.bottom).offset(0)
+            make.width.height.equalTo(60)
+        }
+        
+        art3.snp.makeConstraints { (make) in
+            make.top.equalTo(self.art2.snp.bottom).offset(0)
+            make.width.height.equalTo(60)
+        }
+        
+        
+        
         self.addSubview(spacer)
         spacer.snp.makeConstraints { (make) in
-            make.top.equalTo(self.im1.snp.bottom)
+            make.top.equalTo(self.art3.snp.bottom)
             make.left.right.bottom.equalToSuperview()
         }
         
