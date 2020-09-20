@@ -21,6 +21,7 @@
 		7934660C25166F5F007261CE /* ContentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934660B25166F5F007261CE /* ContentTableView.swift */; };
 		7934664725168E48007261CE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934664625168E48007261CE /* TabBarController.swift */; };
 		79ED517425172C2100DB1DD4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ED517325172C2100DB1DD4 /* ProfileViewController.swift */; };
+		79ED51D925174BE900DB1DD4 /* PersonalAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ED51D825174BE900DB1DD4 /* PersonalAPI.swift */; };
 		79F6C37025159CC40003A44C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F6C36F25159CC40003A44C /* AppDelegate.swift */; };
 		79F6C37225159CC40003A44C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F6C37125159CC40003A44C /* SceneDelegate.swift */; };
 		79F6C37925159CC50003A44C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F6C37825159CC50003A44C /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		7934660B25166F5F007261CE /* ContentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableView.swift; sourceTree = "<group>"; };
 		7934664625168E48007261CE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		79ED517325172C2100DB1DD4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		79ED51D825174BE900DB1DD4 /* PersonalAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAPI.swift; sourceTree = "<group>"; };
 		79F6C36C25159CC40003A44C /* lyrum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lyrum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F6C36F25159CC40003A44C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79F6C37125159CC40003A44C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				79227B902516F344006CB86E /* SearchAPI.swift */,
 				79227BAA25170B23006CB86E /* Player.swift */,
 				79F6C3892515A2C10003A44C /* Database.swift */,
+				79ED51D825174BE900DB1DD4 /* PersonalAPI.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79ED51D925174BE900DB1DD4 /* PersonalAPI.swift in Sources */,
 				7934647C2515B4F7007261CE /* LoginViewController.swift in Sources */,
 				79227B912516F344006CB86E /* SearchAPI.swift in Sources */,
 				79227B092516B4FA006CB86E /* SearchViewController.swift in Sources */,

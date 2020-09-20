@@ -256,7 +256,7 @@ class ProfileViewController : UIViewController {
 //            self.scrollView.songLabel1.text = "1. 2 am By Che Ecru"
 //            self.scrollView.songLabel2.text = "2. Sonic Boom by Roy Woods"
 //            self.scrollView.songLabel3.text = "3. She is the Moon By vbnd"
-        }
+        }                
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -267,6 +267,16 @@ class ProfileViewController : UIViewController {
             self.scrollView.name.text = username
             self.scrollView.email.text = email
             self.scrollView.followers.countFrom(0, to: CGFloat(followers), withDuration: 2.0)
+        }
+        
+        request_fav_artist { (results) in
+            self.scrollView.im1.kf.setImage(with: URL(string: results[0])!)
+            self.scrollView.im2.kf.setImage(with: URL(string: results[1])!)
+            self.scrollView.im3.kf.setImage(with: URL(string: results[2])!)
+            self.scrollView.im4.kf.setImage(with: URL(string: results[3])!)
+            self.scrollView.im5.kf.setImage(with: URL(string: results[4])!)
+            self.scrollView.im6.kf.setImage(with: URL(string: results[5])!)
+            
         }
     }
     
