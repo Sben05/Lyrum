@@ -35,7 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Try to get refresh token as many times as possible lol
         SpotifyAPI.is_user_logged_in_through_spotify { (success, error) in
             
-            guard success == true else {
+            guard success == true && PFUser.current() != nil else {
                 
                 let vc = LoginViewController()
                 vc.modalPresentationStyle = .fullScreen

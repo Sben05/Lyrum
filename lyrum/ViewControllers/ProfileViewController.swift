@@ -7,6 +7,8 @@
 
 import UIKit
 import ChameleonFramework
+import SpringButton
+import Parse
 
 
 class ProfileViewController : UIViewController {
@@ -27,6 +29,21 @@ class ProfileViewController : UIViewController {
         inst.textColor = grad
         self.navigationItem.titleView = inst
         
+        // Logout
+        let logout = SpringButton(style: .Minimal)
+        logout.setImage(UIImage(named: "Exit")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        logout.imageView?.tintColor = .systemPink
+        logout.color = .systemPink
+        logout.sizeToFit()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: logout)
+        
+        logout.onTap {
+            PFUser.logOutInBackground { (error) in
+                let vc = LoginViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
     }
     
 }
