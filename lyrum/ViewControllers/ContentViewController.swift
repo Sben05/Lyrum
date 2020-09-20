@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 import ChameleonFramework
 
 
@@ -57,11 +58,11 @@ class NavigationController: UINavigationController {
 }
 
 
-class ContentViewController: UIViewController {
+class ContentViewController: UIViewController, RefreshDelegate {
     
     var hotNew:HotNewControl!
-    
     var hotTableView:ContentTableView!
+    var newTableView:ContentTableView!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
@@ -73,20 +74,50 @@ class ContentViewController: UIViewController {
         self.view.backgroundColor = .white
         
         self.hotNew.onChange { (idx) in
-//            if idx == 0 {
-//                showPopup(title: "Hot", message: "Showing whats spicy atm.")
-//            }else{
-//                showPopup(title: "New", message: "Showing most recent posts.")
-//            }
+            if idx == 0 {
+                self.hotTableView.isHidden = false
+                self.newTableView.isHidden = true
+                self.refreshNew()
+            }else{
+                self.hotTableView.isHidden = true
+                self.newTableView.isHidden = false
+                self.refreshHot()                
+            }
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        guard PFUser.current() != nil else {
+            return
+        }
+        
+        self.refreshHot()
+        self.refreshNew()
+    }
+    
+    func didRefresh(identifier: String) {
+        if identifier == "hot" {
+            refreshHot()
+        }else{
+            refreshNew()
+        }
+    }
+    
+    func refreshHot() {
         query_for_posts { (done, obj) in
             self.hotTableView.objects = obj
             self.hotTableView.reloadData()
+            self.hotTableView.refreshControl?.endRefreshing()
+        }
+    }
+    
+    func refreshNew() {
+        query_for_posts(pref: QueryPreference.NEW) { (done, obj) in
+            self.newTableView.objects = obj
+            self.newTableView.reloadData()
+            self.newTableView.refreshControl?.endRefreshing()
         }
     }
 }
@@ -98,9 +129,19 @@ extension ContentViewController {
         self.navigationItem.titleView = hotNew
         
         hotTableView = ContentTableView(identifier: "hot")
+        hotTableView.refreshDelegate = self
         view.addSubview(hotTableView)
         
+        newTableView = ContentTableView(identifier: "new")
+        newTableView.refreshDelegate = self
+        newTableView.isHidden = true
+        view.addSubview(newTableView)
+        
         hotTableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
+        newTableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
     }

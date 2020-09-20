@@ -13,6 +13,7 @@ import Kingfisher
 class ContentCell: UITableViewCell {
     
     var object:PFObject!
+    var song:Song!
     
     var artwork: UIImageView!
     var title: BoldLabel!
@@ -35,6 +36,7 @@ class ContentCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupUI()
+        self.snap()
         self.backgroundColor = .white
         let bg = UIView()
         bg.backgroundColor = UIColor.init(white: 0.95, alpha: 1)
@@ -56,6 +58,14 @@ class ContentCell: UITableViewCell {
             self.liked = !self.liked
             
             self.infoLabel.text = "\(self.num_likes) likes | \(self.num_comments) comments"
+        }
+        
+        self.playButton.onTap {
+            self.playButton.released()
+            SpotifyPlayer.playSong(song: self.song)
+            print("Trying to play song..")
+            self.playButton.setImage(UIImage(named: "PlayButton")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            self.playButton.imageView?.tintColor = .systemYellow            
         }
     }
     
@@ -123,7 +133,8 @@ extension ContentCell {
         self.tagLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.author.snp.bottom).offset(10)
             make.left.equalTo(self.artwork.snp.right).offset(10)
-            make.width.equalTo(self.tagLabel.intrinsicContentSize.width+25)
+//            make.width.equalTo(self.tagLabel.intrinsicContentSize.width+25)
+            make.width.lessThanOrEqualToSuperview()
             make.height.equalTo(25)
         }
         
@@ -154,17 +165,22 @@ extension ContentCell {
         
         self.spacer.snp.makeConstraints { (make) in
             make.top.equalTo(infoLabel.snp.bottom)
-            make.bottom.left.right.equalToSuperview().inset(40)
+            make.bottom.left.right.equalToSuperview().inset(20)
         }
     }
+}
+
+
+protocol RefreshDelegate {
+    func didRefresh(identifier:String)
 }
 
 
 class ContentTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     
     var identifier:String!
-    
     var objects:[PFObject] = []
+    var refreshDelegate:RefreshDelegate?
     
     init(identifier:String) {
         super.init(frame: .zero, style: .plain)
@@ -179,6 +195,14 @@ class ContentTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         self.alwaysBounceVertical = true
         
         self.allowsSelection = false
+    
+        refreshControl = UIRefreshControl()
+        refreshControl?.tintColor = .systemPink
+        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.addSubview(refreshControl!)
+        refreshControl?.on(.valueChanged, handler: { (control, event) in
+            self.refreshDelegate?.didRefresh(identifier: self.identifier)
+        })
     }
     
     required init?(coder: NSCoder) {
@@ -201,13 +225,18 @@ class ContentTableView : UITableView, UITableViewDelegate, UITableViewDataSource
                                 
         let cell = tableView.dequeueReusableCell(withIdentifier: self.identifier, for: indexPath) as! ContentCell
         
+        cell.song = song
         cell.object = obj
         cell.setArtwork(url: song.artwork)
         cell.title.text = song.title + " By " + song.artist
-        cell.author.text = "@jarnold97"
-        cell.tagLabel.text = song.tag
-        cell.tagLabel.setGradient()
-        cell.snap()
+        cell.author.text = "@" + (PFUser.current()!.object(forKey: "name") as! String).lowercased().replacingOccurrences(of: " ", with: "")
+        cell.tagLabel.text = "   "+song.tag+"   "
+        
+        cell.playButton.setImage(UIImage(named: "PlayOutline")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        cell.playButton.imageView?.tintColor = UIColor(white: 0.8, alpha: 1.0)
+        
+//        cell.snap()
+        
         cell.liked = false
         
         let likes = obj.object(forKey: "likes") as! [String]

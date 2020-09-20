@@ -115,11 +115,12 @@ class TagLabel: UILabel {
     init() {
         super.init(frame: .zero)
         self.font = UIFont.small
-        self.numberOfLines = 1
+        self.numberOfLines = 0
         self.textColor = UIColor.white
-        self.textAlignment = .center
+        self.textAlignment = .left
         self.layer.cornerRadius = 12
         self.layer.masksToBounds = true
+        self.easyGradient()
     }
     
     required init?(coder: NSCoder) {
@@ -133,6 +134,12 @@ class TagLabel: UILabel {
         self.backgroundColor = grad
     }
     
+    func easyGradient() {
+        let pink = UIColor.init(red: 245/255, green: 0/255, blue: 155/255, alpha: 1.0)
+        let yellow = UIColor.init(red: 255/255, green: 180/255, blue: 0, alpha: 1.0)
+        let grad = UIColor.init(gradientStyle: UIGradientStyle.leftToRight, withFrame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/2, height: 50), andColors: [pink, yellow])
+        self.backgroundColor = grad
+    }
 }
 
 

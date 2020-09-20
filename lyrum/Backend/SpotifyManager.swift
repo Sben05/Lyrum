@@ -22,6 +22,7 @@ class SpotifyConstants {
     static var ACCESS_TOKEN:String = ""
     
     static var USER_ID:String = ""
+    static var DISPLAY_NAME:String = ""
 }
 
 
@@ -78,11 +79,17 @@ class SpotifyAPI {
             req.responseJSON { (data) in
                 if data.error == nil {
                     if let res = data.value as? [String:Any] {
+                                                                    
                         if let x = res["id"] as? String {
                             SpotifyConstants.USER_ID = x
-                            completion(true, nil)
-                            return
                         }
+                        
+                        if let x = res["display_name"] as? String {
+                            SpotifyConstants.DISPLAY_NAME = x
+                        }
+                        
+                        completion(true, nil)
+                        return
                     }
                 }
                 completion(false, data.error)

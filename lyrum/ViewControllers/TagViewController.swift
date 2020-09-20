@@ -24,7 +24,7 @@ class TagViewController : UIViewController, MagneticDelegate {
     }
         
     var magnetic: Magnetic?
-    var allTags:[String] = ["chill", "hype", "fire", "sad", "relaxing", "beast mode", "happy", "good vibes", "hip hop", "classical", "deep house", "summer", "morning", "work out", "rock", "gaming", "dance", "at home", "party", "sleep", "anime", "jazz", "soul", "romance", "baby making music"]
+    var allTags:[String] = ["chill", "hype", "fire", "sad", "relaxing", "beast mode", "happy", "good vibes", "hip hop", "classical", "deep house", "summer", "morning", "work out", "rock", "gaming", "dance", "at home", "party", "sleep", "anime", "jazz", "soul", "romantic", "baby making music", "in my feels", "thinking of you", "throw back", "dubstep", "motivated", "balling", "depressed"]
     var chosenTag:String = ""
     
     var song:Song!

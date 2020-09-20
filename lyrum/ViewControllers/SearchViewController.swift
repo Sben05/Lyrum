@@ -106,6 +106,7 @@ class SearchTableView : UITableView, UITableViewDelegate, UITableViewDataSource 
         self.separatorStyle = .none
         self.showsVerticalScrollIndicator = false
         self.alwaysBounceVertical = true
+        self.keyboardDismissMode = .onDrag
     }
     
     required init?(coder: NSCoder) {
@@ -186,7 +187,7 @@ class SearchViewController: UIViewController, SongSearchDelegate {
     }
     
     func searchForSongs(text:String) {
-        Search.song(text: text) { (success, result) in
+        Search.song(text: text, limit: 20) { (success, result) in
             self.resultsTableView.results = result
             self.resultsTableView.reloadData()
         }

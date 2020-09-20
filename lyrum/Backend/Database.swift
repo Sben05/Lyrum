@@ -26,6 +26,7 @@ func sign_up_user(user_id:String, completion: @escaping (_ success:Bool) -> ()) 
     let user = PFUser()
     user.username = user_id
     user.password = user_id
+    user["name"] = SpotifyConstants.DISPLAY_NAME
     
     user.signUpInBackground { (success, error) in
         completion(success)
@@ -40,6 +41,11 @@ func login_user(user_id:String, completion: @escaping (_ success:Bool) -> ()) {
     }
     PFUser.logInWithUsername(inBackground: user_id, password: user_id) { (user, error) in
         if error == nil {
+            
+            // temp
+//            user!["name"] = SpotifyConstants.DISPLAY_NAME
+//            user?.saveInBackground()
+            
             completion(true)
         }else{
             completion(false)
@@ -81,7 +87,7 @@ enum QueryPreference {
 }
 
 
-func query_for_posts(pref:QueryPreference = QueryPreference.NEW, completion: @escaping (_ success:Bool, _ objects: [PFObject]) -> ()) {
+func query_for_posts(pref:QueryPreference = QueryPreference.HOT, completion: @escaping (_ success:Bool, _ objects: [PFObject]) -> ()) {
     let query = PFQuery(className: "Post")
     
     if (pref == QueryPreference.NEW) {
