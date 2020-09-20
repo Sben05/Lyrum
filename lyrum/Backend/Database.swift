@@ -75,8 +75,21 @@ func create_post(song_title:String, song_id:String, artist:String, user:PFUser, 
 }
 
 
-func query_for_posts(completion: @escaping (_ success:Bool, _ objects: [PFObject]) -> ()) {
+enum QueryPreference {
+    case NEW
+    case HOT
+}
+
+
+func query_for_posts(pref:QueryPreference = QueryPreference.NEW, completion: @escaping (_ success:Bool, _ objects: [PFObject]) -> ()) {
     let query = PFQuery(className: "Post")
+    
+    if (pref == QueryPreference.NEW) {
+        query.order(byDescending: "createdAt")
+    }else if (pref == QueryPreference.HOT) {
+        query.order(byDescending: "likes")
+    }
+    
     query.findObjectsInBackground { (obj, error) in
         if error == nil {
             completion(true, obj!)

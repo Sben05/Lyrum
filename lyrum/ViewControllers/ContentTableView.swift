@@ -154,7 +154,7 @@ extension ContentCell {
         
         self.spacer.snp.makeConstraints { (make) in
             make.top.equalTo(infoLabel.snp.bottom)
-            make.bottom.left.right.equalToSuperview().inset(80)
+            make.bottom.left.right.equalToSuperview().inset(40)
         }
     }
 }
