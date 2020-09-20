@@ -25,6 +25,9 @@ class ScrollView : UIScrollView {
     var im1:UIImageView!
     var im2:UIImageView!
     var im3:UIImageView!
+    var im4:UIImageView!
+    var im5:UIImageView!
+    var im6:UIImageView!
     
     var spacer:UIView = UIView()
     
@@ -121,7 +124,7 @@ class ScrollView : UIScrollView {
         }
         
         im2 = UIImageView()
-        im2.backgroundColor = UIColor(white: 0.7, alpha: 1.0)
+        im2.backgroundColor = UIColor(white: 0.85, alpha: 1.0)
         self.addSubview(im2)
         im2.snp.makeConstraints { (make) in
             make.top.equalTo(self.favArtistsLabel.snp.bottom).offset(5)
@@ -138,6 +141,36 @@ class ScrollView : UIScrollView {
             make.left.equalTo(self.im2.snp.right)
             make.width.equalToSuperview().dividedBy(3)
             make.height.equalTo(im3.snp.width)
+        }
+        
+        im4 = UIImageView()
+        im4.backgroundColor = UIColor(white: 0.85, alpha: 1.0)
+        self.addSubview(im4)
+        im4.snp.makeConstraints { (make) in
+            make.top.equalTo(self.im1.snp.bottom)
+            make.left.equalToSuperview()
+            make.width.equalToSuperview().dividedBy(3)
+            make.height.equalTo(im4.snp.width)
+        }
+        
+        im5 = UIImageView()
+        im5.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        self.addSubview(im5)
+        im5.snp.makeConstraints { (make) in
+            make.top.equalTo(self.im2.snp.bottom)
+            make.left.equalTo(self.im5.snp.right)
+            make.width.equalToSuperview().dividedBy(3)
+            make.height.equalTo(im5.snp.width)
+        }
+        
+        im6 = UIImageView()
+        im6.backgroundColor = UIColor(white: 0.85, alpha: 1.0)
+        self.addSubview(im6)
+        im6.snp.makeConstraints { (make) in
+            make.top.equalTo(self.im3.snp.bottom)
+            make.left.equalTo(self.im6.snp.right)
+            make.width.equalToSuperview().dividedBy(3)
+            make.height.equalTo(im6.snp.width)
         }
         
         
