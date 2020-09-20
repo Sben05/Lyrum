@@ -11,13 +11,56 @@ import SpringButton
 import Parse
 
 
+class ScrollView : UIScrollView {
+    
+    var profilePicture:UIImageView!
+    var spacer:UIView = UIView()
+    
+    init() {
+        super.init(frame: .zero)
+        
+        profilePicture = UIImageView()
+        profilePicture.layer.cornerRadius = 50
+        profilePicture.clipsToBounds = true
+        profilePicture.backgroundColor = UIColor(white: 0.97, alpha: 1)
+        self.addSubview(profilePicture)
+        
+        self.profilePicture.snp.makeConstraints { (make) in
+            make.width.height.equalTo(100)
+            make.top.equalToSuperview().offset(20)
+            make.centerX.equalToSuperview()
+        }
+        
+        self.addSubview(spacer)
+        spacer.snp.makeConstraints { (make) in
+            make.top.equalTo(self.profilePicture.snp.bottom)
+            make.left.right.bottom.equalToSuperview()
+        }
+        
+        self.alwaysBounceVertical = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
 class ProfileViewController : UIViewController {
 
+    var scrollView: ScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
         self.hideLine()
+        
+        scrollView = ScrollView()
+        self.view.addSubview(scrollView)
+        self.scrollView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
         
         // Profile gradient text
         let inst = CenterLabel()
@@ -43,6 +86,10 @@ class ProfileViewController : UIViewController {
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
+        }
+        
+        SpotifyAPI.me { (username, email, image, followers) in
+            self.scrollView.profilePicture.kf.setImage(with: URL(string: image))
         }
     }
     

@@ -28,7 +28,7 @@ class SpotifyConstants {
 
 class SpotifyAPI {
     
-    static func me(completion: @escaping (_ username:String, _ email:String, _ image:String, _ numFollowers:String) -> ()){
+    static func me(completion: @escaping (_ username:String, _ email:String, _ image:String, _ numFollowers:Int) -> ()){
         SpotifyAPI.access_token { (done) in
             if done {
                 let headers: HTTPHeaders = [
@@ -38,14 +38,14 @@ class SpotifyAPI {
                 
                 AF.request("https://api.spotify.com/v1/me", method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseJSON { response in
                     if let res = response.value as? [String:Any] {
-                        let usersName = res["display_name"]!
-                        let email = res["email"]!
-                        let image = ((res["images"] as! NSArray)[0] as! NSDictionary)["url"]!
-                        let numOfFollowers = ((res["followers"]) as! NSDictionary)["total"]!
+                        let usersName = res["display_name"]! as! String
+                        let email = res["email"]! as! String
+                        let image = ((res["images"] as! NSArray)[0] as! NSDictionary)["url"]! as! String
+                        let numOfFollowers = ((res["followers"]) as! NSDictionary)["total"]! as! Int
                         
                         completion(usersName, email, image, numOfFollowers)
                     }else{
-                        completion("", "", "", "")
+                        completion("", "", "", 0)
                     }
                 }
             }
