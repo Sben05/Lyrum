@@ -20,6 +20,11 @@ class ScrollView : UIScrollView {
     
     var followers:EFCountingLabel!
     var followerLabel:CenterLabel!
+            
+    var favArtistsLabel:BoldLabel!
+    var im1:UIImageView!
+    var im2:UIImageView!
+    var im3:UIImageView!
     
     var spacer:UIView = UIView()
     
@@ -73,7 +78,7 @@ class ScrollView : UIScrollView {
         self.addSubview(followers)
         
         followers.snp.makeConstraints { (make) in
-            make.top.equalTo(self.email.snp.bottom).offset(20)
+            make.top.equalTo(self.email.snp.bottom).offset(50)
             make.width.equalToSuperview()
             make.centerX.equalToSuperview()
             make.height.lessThanOrEqualToSuperview()
@@ -93,9 +98,52 @@ class ScrollView : UIScrollView {
             make.height.lessThanOrEqualToSuperview()
         }
         
+        
+        favArtistsLabel = BoldLabel()
+        favArtistsLabel.text = "Favourite Artists"
+        self.addSubview(favArtistsLabel)
+        
+        favArtistsLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(self.followerLabel.snp.bottom).offset(50)
+            make.width.equalToSuperview().inset(10)
+            make.centerX.equalToSuperview()
+            make.height.lessThanOrEqualToSuperview()
+        }
+            
+        im1 = UIImageView()
+        im1.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        self.addSubview(im1)
+        im1.snp.makeConstraints { (make) in
+            make.top.equalTo(self.favArtistsLabel.snp.bottom).offset(5)
+            make.left.equalToSuperview()
+            make.width.equalToSuperview().dividedBy(3)
+            make.height.equalTo(im1.snp.width)
+        }
+        
+        im2 = UIImageView()
+        im2.backgroundColor = UIColor(white: 0.7, alpha: 1.0)
+        self.addSubview(im2)
+        im2.snp.makeConstraints { (make) in
+            make.top.equalTo(self.favArtistsLabel.snp.bottom).offset(5)
+            make.left.equalTo(self.im1.snp.right)
+            make.width.equalToSuperview().dividedBy(3)
+            make.height.equalTo(im2.snp.width)
+        }
+        
+        im3 = UIImageView()
+        im3.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        self.addSubview(im3)
+        im3.snp.makeConstraints { (make) in
+            make.top.equalTo(self.favArtistsLabel.snp.bottom).offset(5)
+            make.left.equalTo(self.im2.snp.right)
+            make.width.equalToSuperview().dividedBy(3)
+            make.height.equalTo(im3.snp.width)
+        }
+        
+        
         self.addSubview(spacer)
         spacer.snp.makeConstraints { (make) in
-            make.top.equalTo(self.followerLabel.snp.bottom)
+            make.top.equalTo(self.im1.snp.bottom)
             make.left.right.bottom.equalToSuperview()
         }
         
