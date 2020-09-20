@@ -1,5 +1,7 @@
 # Lyrum
 
+[![Demo Video]](https://youtu.be/wG-q0WTAf34 "Demo Project")
+
 ## Cloning Instructions 
 *XCode 11 is required to clone project*
 1) Press green "code" button on main github screen
@@ -11,7 +13,7 @@
 7) *Note: GPS Capibilites require another device to transmit location to iPhone, this can be done using a variety of ways*
 
 ## Demo
-https://1drv.ms/v/s!AhgwwDStSlSYgoICoVFECmNQlxxhig
+https://www.youtube.com/watch?v=wG-q0WTAf34&feature=youtu.be
 
 ## Inspiration
 Distracted driving is the biggest contributor to car accidents, a problem that affects over 60 million people annually. By addressing distracted driving, we will save billions of dollars, countless hours of time, and thousands of lives.
