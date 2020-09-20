@@ -14,7 +14,7 @@ import EasyStash
 
 class SpotifyConstants {
     static let CLIENT_ID:String = "bcac94c5e73345bd9e108357d7680a42"
-    static let SCOPE:String = "user-read-email,user-modify-playback-state"
+    static let SCOPE:String = "user-read-email,user-modify-playback-state,user-top-read"
     static let REDIRECT_URI:String = "spotify-ios-quick-start://spotify-login-callback"
     
     static var CODE:String = ""

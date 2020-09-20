@@ -24,5 +24,6 @@ target 'lyrum' do
     pod 'SkyFloatingLabelTextField', '~> 3.0'
     pod 'FontAwesome.swift'
     pod "Magnetic"
+    pod 'InputBarAccessoryView'
 
 end

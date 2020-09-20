@@ -10,6 +10,9 @@ PODS:
   - FontAwesome.swift (1.9.0)
   - Gradients (0.3.0)
   - Hero (1.5.0)
+  - InputBarAccessoryView (5.2.0):
+    - InputBarAccessoryView/Core (= 5.2.0)
+  - InputBarAccessoryView/Core (5.2.0)
   - Kingfisher (5.15.2):
     - Kingfisher/Core (= 5.15.2)
   - Kingfisher/Core (5.15.2)
@@ -40,6 +43,7 @@ DEPENDENCIES:
   - FontAwesome.swift
   - Gradients
   - Hero
+  - InputBarAccessoryView
   - Kingfisher (~> 5.0)
   - Magnetic
   - Parse
@@ -60,6 +64,7 @@ SPEC REPOS:
     - FontAwesome.swift
     - Gradients
     - Hero
+    - InputBarAccessoryView
     - Kingfisher
     - Magnetic
     - Parse
@@ -99,6 +104,7 @@ SPEC CHECKSUMS:
   FontAwesome.swift: a403b88cec950511745ba8f2decd1b6a07346d13
   Gradients: d7e1be639692b86577616ee55ea96f54fb5f1de1
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  InputBarAccessoryView: ac1bc2a11508fc2490c2322beb1d4c9f05c8e634
   Kingfisher: 1f60394409c6b916ce31474bcf73fdde6f3b9a7b
   Magnetic: 02b9d6686160421cc4285140387419ec9ccab033
   Parse: 0fb5c7cc7ee5900f2434e24607d0496155b8d04f
@@ -109,6 +115,6 @@ SPEC CHECKSUMS:
   SpringButton: 70faf9a48807002982d14b8266f91ba41c177bdf
   SVProgressHUD: de812b4f0e1d65358f0064416473174ae619843f
 
-PODFILE CHECKSUM: 5559f6e40dac6b402fb8694dc436923a9ad22293
+PODFILE CHECKSUM: 60c6aa018a18c4f21f7f691b9f1d9f2fd014ed26
 
 COCOAPODS: 1.8.4

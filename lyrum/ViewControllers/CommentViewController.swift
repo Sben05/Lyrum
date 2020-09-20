@@ -9,6 +9,7 @@ import UIKit
 import Parse
 import SnapKit
 import ChameleonFramework
+import InputBarAccessoryView
 
 
 class CommentCell : UITableViewCell {
@@ -84,6 +85,7 @@ class CommentTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         self.alwaysBounceVertical = true
         self.allowsSelection = false
         self.backgroundColor = .white
+        self.keyboardDismissMode = .onDrag
     }
     
     required init?(coder: NSCoder) {
@@ -95,7 +97,7 @@ class CommentTableView : UITableView, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.objects.count
 //        return objects.count
     }
     
@@ -120,11 +122,21 @@ class CommentTableView : UITableView, UITableViewDelegate, UITableViewDataSource
 
 
 
-class CommentViewController: UIViewController {
+class CommentViewController: UIViewController, UITextViewDelegate {
     
     var post:PFObject!
+    var comments:[PFObject] = []
+    var toolbar:FacebookInputBar!
     
     var tableView:CommentTableView!
+        
+    override var inputAccessoryView: UIView? {
+        return self.toolbar
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
     
     init(post:PFObject) {
         super.init(nibName: nil, bundle: nil)
@@ -141,10 +153,80 @@ class CommentViewController: UIViewController {
         self.setup()
         
         tableView = CommentTableView(identifier: "comments")
+
         self.view.addSubview(tableView)
         
         tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
+        }
+        
+        self.toolbar = FacebookInputBar.init(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: 60))
+        
+        self.toolbar.sendButton.onTap {
+            self.toolbar.sendButton.startAnimating()
+            self.toolbar.sendButton.isUserInteractionEnabled = false
+            self.toolbar.inputTextView.placeholder = "Posting..."
+            let text = self.toolbar.inputTextView.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            self.toolbar.inputTextView.text = ""
+            
+            commentPost(post: self.post, text: text, user: PFUser.current()!) { (success) in
+                
+                self.toolbar.sendButton.isUserInteractionEnabled = true
+                self.toolbar.inputTextView.placeholder = "Aa"
+                self.toolbar.sendButton.stopAnimating()
+                
+                if !success {
+                    self.showPopup()
+                }else{
+                    // query comments
+                    self.query()
+                }
+            }
+        }
+        
+        self.toolbar.inputTextView.delegate = self
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(CommentViewController.keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.query()
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if self.comments.count > 4 {
+            self.tableView.scrollToBottom()
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            
+            if keyboardHeight > 10 {
+                self.tableView.snp.remakeConstraints { (make) in
+                    make.top.left.right.equalToSuperview()
+                    make.height.equalTo(self.view.frame.height-keyboardHeight)
+                }
+                        
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.view.layoutIfNeeded()
+                }) { (done) in
+                    
+                }
+            }
         }
     }
 }
@@ -170,4 +252,55 @@ extension CommentViewController {
         inst.textColor = grad
         self.navigationItem.titleView = inst
     }
+    
+    func query() {
+        query_comments(post: self.post) { (done, obj) in
+            if !done {
+                self.showPopup()
+            }else{
+                self.comments = obj
+                self.tableView.objects = self.comments
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
+
+
+class FacebookInputBar: InputBarAccessoryView {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure() {
+        self.backgroundColor = .white
+        self.contentView.backgroundColor = .white
+        self.backgroundView.backgroundColor = .white
+        
+        inputTextView.backgroundColor = UIColor.init(white: 0.95, alpha: 1)
+        inputTextView.placeholderTextColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        inputTextView.textContainerInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+        inputTextView.placeholderLabelInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
+        inputTextView.layer.borderColor = UIColor.clear.cgColor
+        inputTextView.layer.borderWidth = 0.0
+//        inputTextView.tintColor = .placeholderText
+        inputTextView.font = UIFont.subDetail
+        inputTextView.placeholderLabel.font = .detail
+        inputTextView.layer.cornerRadius = 19.0
+        inputTextView.layer.masksToBounds = true
+        inputTextView.scrollIndicatorInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        inputView?.tintColor = .systemPink
+        inputTextView.textColor = .black
+        
+        self.sendButton.titleLabel?.font = .detail
+        self.sendButton.setTitleColor(.systemPink, for: .normal)
+    }
+    
+}
+

@@ -123,6 +123,18 @@ func commentPost(post:PFObject, text:String, user:PFUser, completion: @escaping 
     // Actually save obj
     post.incrementKey("numComments")
     post.saveInBackground()
+    
+    let comment = PFObject(className: "Comment")
+    comment["post"] = post
+    comment["user"] = user
+    comment["text"] = text
+    comment.saveInBackground { (done, error) in
+        if error == nil {
+            completion(true)
+        }else{
+            completion(false)
+        }
+    }
 }
 
 
@@ -136,4 +148,17 @@ func pfobj_to_song(obj:PFObject) -> Song {
     song.preview = obj.object(forKey: "preview_link") as! String
     song.uri = obj.object(forKey: "stream_link") as! String
     return song
+}
+
+
+func query_comments(post:PFObject, completion: @escaping (_ success:Bool, _ objects: [PFObject]) -> ()) {
+    let query = PFQuery(className: "Comment")
+    query.whereKey("post", equalTo: post)
+    query.findObjectsInBackground { (obj, error) in
+        if error == nil {
+            completion(true, obj!)
+        }else{
+            completion(false, [])
+        }
+    }
 }

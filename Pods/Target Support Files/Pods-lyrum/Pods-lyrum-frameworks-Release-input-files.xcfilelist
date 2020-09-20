@@ -8,6 +8,7 @@ ${BUILT_PRODUCTS_DIR}/EasyStash/EasyStash.framework
 ${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework
 ${BUILT_PRODUCTS_DIR}/Gradients/Gradients.framework
 ${BUILT_PRODUCTS_DIR}/Hero/Hero.framework
+${BUILT_PRODUCTS_DIR}/InputBarAccessoryView/InputBarAccessoryView.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
 ${BUILT_PRODUCTS_DIR}/Magnetic/Magnetic.framework
 ${BUILT_PRODUCTS_DIR}/Parse/Parse.framework
