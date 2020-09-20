@@ -13,6 +13,7 @@ PODS:
   - Kingfisher (5.15.2):
     - Kingfisher/Core (= 5.15.2)
   - Kingfisher/Core (5.15.2)
+  - Magnetic (3.2.1)
   - Parse (1.19.0):
     - Parse/Core (= 1.19.0)
   - Parse/Core (1.19.0):
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - Gradients
   - Hero
   - Kingfisher (~> 5.0)
+  - Magnetic
   - Parse
   - Parse/UI
   - pop
@@ -59,6 +61,7 @@ SPEC REPOS:
     - Gradients
     - Hero
     - Kingfisher
+    - Magnetic
     - Parse
     - pop
     - PopupDialog
@@ -97,6 +100,7 @@ SPEC CHECKSUMS:
   Gradients: d7e1be639692b86577616ee55ea96f54fb5f1de1
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   Kingfisher: 1f60394409c6b916ce31474bcf73fdde6f3b9a7b
+  Magnetic: 02b9d6686160421cc4285140387419ec9ccab033
   Parse: 0fb5c7cc7ee5900f2434e24607d0496155b8d04f
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
@@ -105,6 +109,6 @@ SPEC CHECKSUMS:
   SpringButton: 70faf9a48807002982d14b8266f91ba41c177bdf
   SVProgressHUD: de812b4f0e1d65358f0064416473174ae619843f
 
-PODFILE CHECKSUM: 85c827dfb41eade51b3b1efe762feecbe404d982
+PODFILE CHECKSUM: 5559f6e40dac6b402fb8694dc436923a9ad22293
 
 COCOAPODS: 1.8.4

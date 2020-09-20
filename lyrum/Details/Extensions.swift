@@ -17,3 +17,10 @@ extension UIViewController {
         self.present(popup, animated: true, completion: nil)
     }
 }
+
+
+extension UIViewController {
+    open override func awakeFromNib() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+}

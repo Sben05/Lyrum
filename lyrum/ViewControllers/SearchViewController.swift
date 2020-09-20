@@ -187,7 +187,14 @@ class SearchViewController: UIViewController, SongSearchDelegate {
     }
     
     func foundSong(songId: String) {
-        self.dismiss(animated: true, completion: nil)
+        let vc = TagViewController()
+        self.navigationController?.navigationBar.backItem?.title = ""
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }
 
@@ -211,3 +218,5 @@ extension SearchViewController {
         self.navigationItem.titleView = searchBar
     }
 }
+
+

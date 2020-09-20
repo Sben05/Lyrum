@@ -23,6 +23,6 @@ target 'lyrum' do
     pod 'Kingfisher', '~> 5.0'
     pod 'SkyFloatingLabelTextField', '~> 3.0'
     pod 'FontAwesome.swift'
-
+    pod "Magnetic"
 
 end
