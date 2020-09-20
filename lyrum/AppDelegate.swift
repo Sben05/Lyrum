@@ -42,6 +42,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window = UIWindow.init(frame: UIScreen.main.bounds)
         }
         
+//        let query = PFQuery(className: "Post")
+//        query.findObjectsInBackground { (obj, error) in
+//            if error == nil {
+//                PFObject.deleteAll(inBackground: obj! as! [PFObject]) { (succeeded, error) in
+//                    if (succeeded) {
+//                        // The array of objects was successfully deleted.
+//                    } else {
+//                        // There was an error. Check the errors localizedDescription.
+//                    }
+//                }
+//
+//            }
+//        }
+        
         return true
     }
 

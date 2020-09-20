@@ -29,6 +29,8 @@ class ContentCell: UITableViewCell {
     
     var liked:Bool = false
     
+    var num_likes:Int = 0
+    var num_comments:Int = 0
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -44,12 +46,16 @@ class ContentCell: UITableViewCell {
             if self.liked {
                 self.likeButton.imageView?.tintColor = UIColor(white: 0.8, alpha: 1.0)
                 unlikePost(obj: self.object)
+                self.num_likes -= 1
             }else{
+                self.num_likes += 1
                 self.likeButton.imageView?.tintColor = .flatRed()
                 likePost(obj: self.object)
             }
             
             self.liked = !self.liked
+            
+            self.infoLabel.text = "\(self.num_likes) likes | \(self.num_comments) comments"
         }
     }
     
@@ -199,16 +205,20 @@ class ContentTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         cell.author.text = "@jarnold97"
         cell.tagLabel.text = obj.object(forKey: "tag") as? String
         cell.tagLabel.setGradient()
-        cell.infoLabel.text = "49 likes | 72 comments | 2.1K views"
         cell.snap()
         cell.liked = false
         
         let likes = obj.object(forKey: "likes") as! [String]
+        cell.num_likes = likes.count
+        cell.num_comments = obj.object(forKey: "numComments") as! Int
+        cell.infoLabel.text = "\(likes.count) likes | \(cell.num_comments) comments"
+        
         let uid = PFUser.current()!.objectId!
         if likes.contains(uid) {
             cell.liked = true
             cell.likeButton.imageView?.tintColor = .flatRed()
         }else{
+            cell.liked = false
             cell.likeButton.imageView?.tintColor = UIColor(white: 0.8, alpha: 1.0)
         }
         
@@ -219,10 +229,17 @@ class ContentTableView : UITableView, UITableViewDelegate, UITableViewDataSource
                 cell.liked = true
                 cell.likeButton.imageView?.tintColor = .flatRed()
             }else{
+                cell.liked = false
                 cell.likeButton.imageView?.tintColor = UIColor(white: 0.8, alpha: 1.0)
             }
+            
+            // Update likes again
+            let num_likes:Int = (obj!.object(forKey: "likes") as! [String]).count
+            cell.num_likes = num_likes
+            cell.num_comments = obj!.object(forKey: "numComments") as! Int
+            cell.infoLabel.text = "\(num_likes) likes | \(cell.num_comments) comments"
         }
-        
+
         return cell
     }
     

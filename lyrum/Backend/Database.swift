@@ -61,7 +61,9 @@ func create_post(song_title:String, song_id:String, artist:String, user:PFUser, 
     obj["stream_link"] = stream_link
     obj["artwork_url"] = artwork_url
     obj["tag"] = tag
-    obj["likes"] = []    
+    obj["likes"] = []
+    obj["numComments"] = 0
+    
     obj.saveInBackground { (done, error) in
         SVProgressHUD.dismiss()
         if error == nil {
@@ -94,4 +96,12 @@ func likePost(obj:PFObject) {
 func unlikePost(obj:PFObject) {
     obj.removeObjects(in: [PFUser.current()!.objectId!], forKey: "likes")
     obj.saveInBackground()
+}
+
+
+func commentPost(post:PFObject, text:String, user:PFUser, completion: @escaping (_ success: Bool) -> ()) {
+    
+    // Actually save obj
+    post.incrementKey("numComments")
+    post.saveInBackground()
 }
