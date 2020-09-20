@@ -10,6 +10,11 @@ import Parse
 import Kingfisher
 
 
+protocol CommentDelegate {
+    func commentOnPost(object:PFObject)
+}
+
+
 class ContentCell: UITableViewCell {
     
     var object:PFObject!
@@ -32,6 +37,8 @@ class ContentCell: UITableViewCell {
     
     var num_likes:Int = 0
     var num_comments:Int = 0
+    
+    var commentDelegate:CommentDelegate?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -58,6 +65,11 @@ class ContentCell: UITableViewCell {
             self.liked = !self.liked
             
             self.infoLabel.text = "\(self.num_likes) likes | \(self.num_comments) comments"
+        }
+        
+        self.commentButton.onTap {
+            self.commentButton.released()
+            self.commentDelegate?.commentOnPost(object: self.object)
         }
         
         self.playButton.onTap {
@@ -176,7 +188,13 @@ protocol RefreshDelegate {
 }
 
 
-class ContentTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
+class ContentTableView : UITableView, UITableViewDelegate, UITableViewDataSource, CommentDelegate {
+    
+    func commentOnPost(object: PFObject) {
+        self.commentDelegate?.commentOnPost(object: object)
+    }
+    
+    var commentDelegate:CommentDelegate?
     
     var identifier:String!
     var objects:[PFObject] = []
@@ -224,7 +242,7 @@ class ContentTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         let song = pfobj_to_song(obj: obj)
                                 
         let cell = tableView.dequeueReusableCell(withIdentifier: self.identifier, for: indexPath) as! ContentCell
-        
+        cell.commentDelegate = self
         cell.song = song
         cell.object = obj
         cell.setArtwork(url: song.artwork)

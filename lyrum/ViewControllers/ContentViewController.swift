@@ -58,7 +58,7 @@ class NavigationController: UINavigationController {
 }
 
 
-class ContentViewController: UIViewController, RefreshDelegate {
+class ContentViewController: UIViewController, RefreshDelegate, CommentDelegate {
     
     var hotNew:HotNewControl!
     var hotTableView:ContentTableView!
@@ -120,6 +120,17 @@ class ContentViewController: UIViewController, RefreshDelegate {
             self.newTableView.refreshControl?.endRefreshing()
         }
     }
+    
+    func commentOnPost(object: PFObject) {
+        let vc = CommentViewController(post: object)
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
 }
 
 
@@ -130,11 +141,13 @@ extension ContentViewController {
         
         hotTableView = ContentTableView(identifier: "hot")
         hotTableView.refreshDelegate = self
+        hotTableView.commentDelegate = self
         view.addSubview(hotTableView)
         
         newTableView = ContentTableView(identifier: "new")
         newTableView.refreshDelegate = self
         newTableView.isHidden = true
+        newTableView.commentDelegate = self
         view.addSubview(newTableView)
         
         hotTableView.snp.makeConstraints { (make) in
