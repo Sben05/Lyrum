@@ -25,5 +25,6 @@ target 'lyrum' do
     pod 'FontAwesome.swift'
     pod "Magnetic"
     pod 'InputBarAccessoryView'
+    pod 'EFCountingLabel'
 
 end

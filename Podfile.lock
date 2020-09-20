@@ -7,6 +7,7 @@ PODS:
   - Closures (0.7)
   - DynamicBlurView (4.1.0)
   - EasyStash (1.1.7)
+  - EFCountingLabel (5.1.2)
   - FontAwesome.swift (1.9.0)
   - Gradients (0.3.0)
   - Hero (1.5.0)
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/wowansm/Chameleon`, branch `swift5`)
   - Closures
   - EasyStash (from `https://github.com/onmyway133/EasyStash.git`)
+  - EFCountingLabel
   - FontAwesome.swift
   - Gradients
   - Hero
@@ -61,6 +63,7 @@ SPEC REPOS:
     - Bolts
     - Closures
     - DynamicBlurView
+    - EFCountingLabel
     - FontAwesome.swift
     - Gradients
     - Hero
@@ -101,6 +104,7 @@ SPEC CHECKSUMS:
   Closures: a83b9892a5b1c4125a9dfcd53e2754db5d7f6d22
   DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
   EasyStash: 29813c9bca4ace671c86d932b3acffe91d6c4e43
+  EFCountingLabel: fb9119eff4bb20bf42538665cab8e8419083e486
   FontAwesome.swift: a403b88cec950511745ba8f2decd1b6a07346d13
   Gradients: d7e1be639692b86577616ee55ea96f54fb5f1de1
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
@@ -115,6 +119,6 @@ SPEC CHECKSUMS:
   SpringButton: 70faf9a48807002982d14b8266f91ba41c177bdf
   SVProgressHUD: de812b4f0e1d65358f0064416473174ae619843f
 
-PODFILE CHECKSUM: 60c6aa018a18c4f21f7f691b9f1d9f2fd014ed26
+PODFILE CHECKSUM: ec61cfabbda4ae828d1d4a0a95588791b5cb3746
 
 COCOAPODS: 1.8.4

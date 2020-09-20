@@ -9,13 +9,18 @@ import UIKit
 import ChameleonFramework
 import SpringButton
 import Parse
+import EFCountingLabel
 
 
 class ScrollView : UIScrollView {
     
     var profilePicture:UIImageView!
     var name:BoldLabel!
-    var email:CenterLabel!
+    var email:DetailLabel!
+    
+    var followers:EFCountingLabel!
+    var followerLabel:CenterLabel!
+    
     var spacer:UIView = UIView()
     
     
@@ -43,12 +48,13 @@ class ScrollView : UIScrollView {
             make.top.equalTo(self.profilePicture.snp.bottom).offset(10)
             make.width.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.height.equalTo(50)
+            make.height.lessThanOrEqualToSuperview()
         }
         
-        email = CenterLabel()
+        email = DetailLabel()
         email.text = "example@ucdavis.edu"
         email.textColor = UIColor(white: 0.7, alpha: 1.0)
+        email.textAlignment = .center
         self.addSubview(email)
         
         email.snp.makeConstraints { (make) in
@@ -59,9 +65,37 @@ class ScrollView : UIScrollView {
         }
         
         
+        followers = EFCountingLabel()
+        followers.text = "0"
+        followers.textAlignment = .center
+        followers.textColor = UIColor.black
+        followers.font = UIFont(name: "AvenirNext-UltraLight", size: 60)
+        self.addSubview(followers)
+        
+        followers.snp.makeConstraints { (make) in
+            make.top.equalTo(self.email.snp.bottom).offset(20)
+            make.width.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.height.lessThanOrEqualToSuperview()
+        }
+        
+        
+        followerLabel = CenterLabel()
+        followerLabel.text = "followers"
+        followerLabel.font = .detail
+        followerLabel.textColor = UIColor(white: 0.7, alpha: 1)
+        self.addSubview(followerLabel)
+        
+        followerLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(self.followers.snp.bottom).offset(5)
+            make.width.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.height.lessThanOrEqualToSuperview()
+        }
+        
         self.addSubview(spacer)
         spacer.snp.makeConstraints { (make) in
-            make.top.equalTo(self.email.snp.bottom)
+            make.top.equalTo(self.followerLabel.snp.bottom)
             make.left.right.bottom.equalToSuperview()
         }
         
@@ -120,6 +154,17 @@ class ProfileViewController : UIViewController {
             self.scrollView.profilePicture.kf.setImage(with: URL(string: image))
             self.scrollView.name.text = username
             self.scrollView.email.text = email
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        SpotifyAPI.me { (username, email, image, followers) in
+            self.scrollView.profilePicture.kf.setImage(with: URL(string: image))
+            self.scrollView.name.text = username
+            self.scrollView.email.text = email
+            self.scrollView.followers.countFrom(0, to: CGFloat(followers), withDuration: 2.0)
         }
     }
     
