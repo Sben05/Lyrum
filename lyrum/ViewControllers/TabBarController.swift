@@ -37,7 +37,7 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         let secondViewController = ShouldPresentViewController()
         secondViewController.tabBarItem = UITabBarItem.init(title: nil, image: UIImage.init(named: "Plus"), tag: 1)
         
-        let thirdViewController = NavigationController(rootViewController: ContentViewController())
+        let thirdViewController = NavigationController(rootViewController: ProfileViewController())
         thirdViewController.tabBarItem = UITabBarItem.init(title: nil, image: UIImage.init(named: "User"), tag: 2)
         
         let tabBarList = [firstViewController, secondViewController, thirdViewController]

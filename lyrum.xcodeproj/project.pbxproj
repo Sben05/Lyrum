@@ -20,6 +20,7 @@
 		793465A7251666CF007261CE /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793465A6251666CF007261CE /* ContentViewController.swift */; };
 		7934660C25166F5F007261CE /* ContentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934660B25166F5F007261CE /* ContentTableView.swift */; };
 		7934664725168E48007261CE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934664625168E48007261CE /* TabBarController.swift */; };
+		79ED517425172C2100DB1DD4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ED517325172C2100DB1DD4 /* ProfileViewController.swift */; };
 		79F6C37025159CC40003A44C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F6C36F25159CC40003A44C /* AppDelegate.swift */; };
 		79F6C37225159CC40003A44C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F6C37125159CC40003A44C /* SceneDelegate.swift */; };
 		79F6C37925159CC50003A44C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F6C37825159CC50003A44C /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		793465A6251666CF007261CE /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		7934660B25166F5F007261CE /* ContentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableView.swift; sourceTree = "<group>"; };
 		7934664625168E48007261CE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		79ED517325172C2100DB1DD4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		79F6C36C25159CC40003A44C /* lyrum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lyrum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F6C36F25159CC40003A44C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79F6C37125159CC40003A44C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				79227B082516B4FA006CB86E /* SearchViewController.swift */,
 				79227B5F2516C7B2006CB86E /* TagViewController.swift */,
 				79227BC4251719D1006CB86E /* CommentViewController.swift */,
+				79ED517325172C2100DB1DD4 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				793464CB2515EA19007261CE /* SpotifyManager.swift in Sources */,
 				79227BAB25170B23006CB86E /* Player.swift in Sources */,
 				79227BC5251719D1006CB86E /* CommentViewController.swift in Sources */,
+				79ED517425172C2100DB1DD4 /* ProfileViewController.swift in Sources */,
 				7934664725168E48007261CE /* TabBarController.swift in Sources */,
 				7934642C2515A74D007261CE /* Appearance.swift in Sources */,
 				7934654F251659C7007261CE /* Extensions.swift in Sources */,
