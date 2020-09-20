@@ -11,7 +11,7 @@ import SpringButton
 
 
 protocol SongSearchDelegate {
-    func foundSong(songId:String)
+    func foundSong(song:Song)
 }
 
 
@@ -50,9 +50,11 @@ extension SearchCell {
         self.contentView.addSubview(artwork)
         
         title = BoldLabel()
+        title.numberOfLines = 0
         self.contentView.addSubview(title)
         
         self.artist = DetailLabel()
+        artist.numberOfLines = 0
         self.contentView.addSubview(self.artist)
         
         spacer = UIView()
@@ -87,11 +89,10 @@ extension SearchCell {
 }
 
 
-
 class SearchTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     
     var identifier:String!
-    var results:[String] = ["test", "test", "test"]
+    var results:[Song] = []
     var searchDelegate: SongSearchDelegate?
     
     init(identifier:String) {
@@ -121,19 +122,21 @@ class SearchTableView : UITableView, UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.identifier, for: indexPath) as! SearchCell
-        cell.setArtwork(url: "https://images.genius.com/3736dc67a26ac7a30d7db2255a32f7c1.500x500x1.jpg")
-        cell.title.text = "2 am"
-        cell.artist.text = "Che Ecru"
+        
+        let song = results[indexPath.row]
+        
+        cell.setArtwork(url: song.artwork)
+        cell.title.text = song.title
+        cell.artist.text = song.artist
         cell.snap()
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        searchDelegate?.foundSong(songId: "0001")
+        searchDelegate?.foundSong(song: self.results[indexPath.row])
     }
 }
-
 
 
 class SearchViewController: UIViewController, SongSearchDelegate {
@@ -183,11 +186,14 @@ class SearchViewController: UIViewController, SongSearchDelegate {
     }
     
     func searchForSongs(text:String) {
-        print(text)
+        Search.song(text: text) { (success, result) in
+            self.resultsTableView.results = result
+            self.resultsTableView.reloadData()
+        }
     }
     
-    func foundSong(songId: String) {
-        let vc = TagViewController()
+    func foundSong(song: Song) {
+        let vc = TagViewController(song: song)
         self.navigationController?.navigationBar.backItem?.title = ""
         self.navigationController?.pushViewController(vc, animated: true)
     }

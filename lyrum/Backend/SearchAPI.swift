@@ -14,6 +14,7 @@ class Song {
     var artist:String = ""
     var preview:String = ""
     var uri:String = ""
+    var tag:String = ""
 }
 
 

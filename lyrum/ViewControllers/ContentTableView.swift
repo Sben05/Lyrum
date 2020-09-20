@@ -197,13 +197,15 @@ class ContentTableView : UITableView, UITableViewDelegate, UITableViewDataSource
         
         
         let obj = self.objects[indexPath.row]
+        let song = pfobj_to_song(obj: obj)
                                 
         let cell = tableView.dequeueReusableCell(withIdentifier: self.identifier, for: indexPath) as! ContentCell
+        
         cell.object = obj
-        cell.setArtwork(url: "https://images.genius.com/3736dc67a26ac7a30d7db2255a32f7c1.500x500x1.jpg")
-        cell.title.text = "2 am By Che Ecru"
+        cell.setArtwork(url: song.artwork)
+        cell.title.text = song.title + " By " + song.artist
         cell.author.text = "@jarnold97"
-        cell.tagLabel.text = obj.object(forKey: "tag") as? String
+        cell.tagLabel.text = song.tag
         cell.tagLabel.setGradient()
         cell.snap()
         cell.liked = false

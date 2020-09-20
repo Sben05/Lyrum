@@ -105,3 +105,16 @@ func commentPost(post:PFObject, text:String, user:PFUser, completion: @escaping 
     post.incrementKey("numComments")
     post.saveInBackground()
 }
+
+
+func pfobj_to_song(obj:PFObject) -> Song {
+    let song = Song()
+    song.title = obj.object(forKey: "songTitle") as! String
+    song.id = obj.object(forKey: "songId") as! String
+    song.artist = obj.object(forKey: "artist") as! String
+    song.artwork = obj.object(forKey: "artwork_url") as! String
+    song.tag = obj.object(forKey: "tag") as! String
+    song.preview = obj.object(forKey: "preview_link") as! String
+    song.uri = obj.object(forKey: "stream_link") as! String
+    return song
+}

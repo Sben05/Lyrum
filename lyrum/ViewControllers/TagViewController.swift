@@ -27,6 +27,17 @@ class TagViewController : UIViewController, MagneticDelegate {
     var allTags:[String] = ["chill", "hype", "fire", "sad", "relaxing", "beast mode", "happy", "good vibes", "hip hop", "classical", "deep house", "summer", "morning", "work out", "rock", "gaming", "dance", "at home", "party", "sleep", "anime", "jazz", "soul", "romance", "baby making music"]
     var chosenTag:String = ""
     
+    var song:Song!
+    
+    init(song:Song) {
+        super.init(nibName: nil, bundle: nil)
+        self.song = song
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -37,7 +48,7 @@ class TagViewController : UIViewController, MagneticDelegate {
         self.navigationController?.navigationBar.backItem?.title = ""
         
         let inst = CenterLabel()
-        inst.text = "Tag your Song"
+        inst.text = self.song.title
         inst.sizeToFit()
         let pink = UIColor.init(red: 245/255, green: 0/255, blue: 155/255, alpha: 1.0)
         let yellow = UIColor.init(red: 255/255, green: 180/255, blue: 0, alpha: 1.0)
@@ -61,7 +72,7 @@ class TagViewController : UIViewController, MagneticDelegate {
         submit.onTap {
             submit.released()
             
-            create_post(song_title: "2 am", song_id: "", artist: "Che Ecru", user: PFUser.current()!, preview_link: "", stream_link: "", artwork_url: "", tag: self.chosenTag) { (done) in
+            create_post(song_title: self.song.title, song_id: self.song.id, artist: self.song.artist, user: PFUser.current()!, preview_link: self.song.preview, stream_link: self.song.uri, artwork_url: self.song.artwork, tag: self.chosenTag) { (done) in
                 if (!done) {
                     self.showPopup()
                 }else{
