@@ -1,7 +1,7 @@
 # Lyrum
 
 ## Intro
-*Discover music. Share music.* Lyrum is a platform for discovering new music and sharing new music.
+*Discover music. Share music.* Lyrum is a platform for discovering new music and sharing new music. Click the photo below for a promo video :).
 
 [![Demo Video](https://img.youtube.com/vi/wG-q0WTAf34/0.jpg)](https://www.youtube.com/watch?v=wG-q0WTAf34)
 
