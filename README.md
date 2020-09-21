@@ -63,7 +63,7 @@ Second we used an AWS server to actually play the songs and make user posts, as 
 Finally we used Parse, an open source Swift backend to control the comment and likes features of the app.
 
 ## Challenges We Ran Into
-The biggest challenge was creating our own techniue to parse JSON data from spotify. The poor documentation for the mobile SDK drove us to use the Web API, and using a specialized technique to retrive the data.
+The biggest challenge was creating our own technique to parse JSON data from spotify. The poor documentation for the mobile SDK drove us to use the Web API, and using a specialized technique to retrive the data.
 
 ## Accomplishments That We're Proud Of
 We're proud of creating a platform to connect people better, as well as accomplish our goal of spreading the love of music. We were also proud of making an app which had all the functionality we had hoped for.
