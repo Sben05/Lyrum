@@ -29,7 +29,9 @@ Justin Conklin - University of Virgina -- Computer Science (*justin.conk12@gmail
 7) Open terminal
 8) CD into workspace
 9) Run following commands:
+
    $ pod install
+   
    $ open lyrum.xcworkspace
 10) You are ready!
 11) *Note, depending on you swift verion, you may need to alter the AppDelegate.swift file to include @UIApplicationMain at the top
