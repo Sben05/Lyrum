@@ -11,8 +11,11 @@
 Lyrum email for updates: *contact.lyrum@gmail.com*
 
 Shreeniket Bendre - High School 10th grader -- Aspiring Computer Science(*shreeniketbendre@outlook.com*)
+
 Josh Arnold - UC Davis -- Computer Science (*jarnold@ucdavis.edu*)
+
 Rahul Parthasarathy - Singapore University of Technology and Design -- Computer Science (*rahul_parthasarathy@mymail.sutd.edu.sg*)
+
 Justin Conklin - University of Virgina -- Computer Science (*justin.conk12@gmail.com*)
 
 ## Cloning Instructions 
