@@ -10,7 +10,7 @@
 
 Lyrum email for updates: *contact.lyrum@gmail.com*
 
-Shreeniket Bendre - High School 10th grader -- Aspiring Computer Science(*shreeniketbendre@outlook.com*)
+Shreeniket Bendre - Northwestern University -- Computer Science, Economics (*shreeniketbendre2027@u.northwestern.edu*)
 
 Josh Arnold - UC Davis -- Computer Science (*jarnold@ucdavis.edu*)
 
