@@ -37,7 +37,7 @@ Justin Conklin - University of Vermont -- Computer Science (*justin.conk12@gmail
 11) *Note, depending on you swift verion, you may need to alter the AppDelegate.swift file to include @UIApplicationMain at the top
    
 ## The Project
-Sharing and finding new music can be hard, so 14 year old Shreeniket Bendre, and College Students Josh Arnold, Rahul Parthasarathy, and Justin Conklin created a new social media platform to solve this problem with a single click. Lyrum is a next-generation music platform that helps you discover and share music. With Lyrum, you can keep tabs on all the music your friends are listening to, coupled with the ability to comment about various songs and artists.
+Sharing and finding new music can be hard, so Shreeniket Bendre, Josh Arnold, Rahul Parthasarathy, and Justin Conklin created a new social media platform to solve this problem with a single click. Lyrum is a next-generation music platform that helps you discover and share music. With Lyrum, you can keep tabs on all the music your friends are listening to, coupled with the ability to comment about various songs and artists.
 
 ## What It Does
 We have integrated the Spotify API to seamlessly visualize your Spotify, as well as play songs in-app. Our backend is secure with only server-side authorization so you will never have to worry about your precious data. A rich and appealing user interface, combined with the smoothness of the iOS platform ensures that Lyrum becomes the go-to place to connect with others about the music you love. 
